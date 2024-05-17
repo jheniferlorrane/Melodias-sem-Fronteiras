@@ -1,4 +1,119 @@
+:root {
+   
+}
+
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #000000;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    z-index: 2;
+    align-items: center;
+}
+
+.a_logo_header {
+    width: 15%;
+    height: 15%;
+}
+
+.navbar {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.navbar li a {
+    text-decoration: none;
+}
+
+.btn_header {
+    display: flex;
+    gap: 12px
+}
+
+.home {
+    background: var(--gradiente-radial3);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.textos_home {
+    width: 49%;
+}
+
+.textos_home h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.textos_home p {
+    font-size: 20px;
+}
+
+
+
+.rodape_conteudo {
+    background-color: var(--fundo-azul6);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    padding: 50px 10px;
+}
+
+.colunas {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.logo_rodape {
+    width: 23%;
+}
+
+.menus_rodape {
+    text-align: center;
+}
+
+.coluna1 a {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    display: flex;
+    justify-content: left;
+}
+
+.coluna2 a {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    display: flex;
+    justify-content: left;
+}
+
+.coluna3 a {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    display: flex;
+    justify-content: left;
 }
