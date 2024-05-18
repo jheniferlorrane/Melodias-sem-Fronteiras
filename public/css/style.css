@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 :root {
-   
+    --laranja: #FE5C00;
+    --laranja-hover: #c54a03;
+    --laranja-linear: linear-gradient(210deg, #FE5C00 50%, #983700);
+    --shadow-preto: 17px 17px 7px -1px rgba(4, 4, 4, 0.7);
 }
 
 * {
@@ -10,73 +15,197 @@
 
 body {
     overflow-x: hidden;
-    background-color: #000000;
+    font-family: 'Inter', sans-serif;
 }
 
 header {
+    position: fixed;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     background-color: black;
     padding-top: 15px;
     padding-bottom: 15px;
     z-index: 2;
     align-items: center;
+    gap: 0.35%;
 }
 
-.a_logo_header {
-    width: 15%;
-    height: 15%;
+.logo {
+    width: 150px;
 }
 
 .navbar {
-    width: 600px;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     list-style: none;
+    gap: 15px;
+    text-align: center;
 }
 
-.navbar li a {
+.navbar a {
+    text-align: center;
+    font-size: 1rem;
     text-decoration: none;
-}
-
-.btn_header {
-    display: flex;
-    gap: 12px
-}
-
-.home {
-    background: var(--gradiente-radial3);
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-.textos_home {
-    width: 49%;
-}
-
-.textos_home h1 {
-    font-size: 40px;
+    color: white;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
+.navbar a:hover {
+    padding: 7px 12px;
+    border-radius: 50px;
+    border: 3px solid var(--laranja);
+}
+
+.btn_header {
+    padding-left: 0.40%;
+    display: flex;
+    gap: 18px;
+}
+
+.btn_login_class,
+.btn_cadastro_class {
+    background-color: var(--laranja);
+    padding: 10px 20px;
+    border-radius: 0px 8px 0px 8px;
+    border-color: transparent;
+}
+
+.btn_login_class:hover,
+.btn_cadastro_class:hover {
+    background-color: var(--laranja-hover);
+}
+
+.btn_login_class a,
+.btn_cadastro_class a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}
+
+.home_class {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 100px 0px;
+    align-items: center
+}
+
+.esquerdo_home {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.textos_home {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.textos_home h1,
 .textos_home p {
-    font-size: 20px;
+    color: black;
+}
+
+.textos_home h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+.textos_home h1 span {
+    color: var(--laranja);
+}
+
+.textos_home p {
+    line-height: 25px;
+    font-size: 1.2rem;
+}
+
+.esquerdo_home button {
+    width: 60%;
+    padding: 13px 20px;
 }
 
 
+.direito_home iframe {
+    width: 550px;
+    height: 300px;
+    box-shadow: var(--shadow-preto);
+}
+
+#quem_somos{
+    background: var(--laranja-linear);
+    padding: 8% 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    justify-content: center;
+}
+
+.textos_quem_somos{
+    color: white;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.textos_quem_somos h1{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.topicos_quem_somos{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.topico{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.img_quem_somos{
+    background-color: white;
+    border-radius: 50%;
+    border-color: transparent;
+    align-items: center;
+    display: flex;
+    width: 45%;
+}
+
+.img_quem_somos img{
+    width: 100%;
+    padding: 20px;
+}
+
+.topico p{
+    text-align: center;
+    color: white;
+}
+
 
 .rodape_conteudo {
-    background-color: var(--fundo-azul6);
     display: flex;
     justify-content: space-around;
     width: 100%;
     align-items: center;
     padding: 50px 10px;
+    background-color: black;
 }
 
 .colunas {
@@ -90,7 +219,8 @@ header {
     width: 23%;
 }
 
-.menus_rodape {
+.button_rodape {
+    color: white;
     text-align: center;
 }
 
@@ -116,4 +246,8 @@ header {
     font-size: 15px;
     display: flex;
     justify-content: left;
+}
+
+h3{
+    color: var(--laranja);
 }

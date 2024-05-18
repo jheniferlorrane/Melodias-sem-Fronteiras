@@ -12,35 +12,77 @@
 
 <body>
     <header>
-        <a href="#comeco" class="a_logo_header"><img class="logo" src="imgs/logo.png"></a>
+        <a href="#home" class="a_logo_header"><img class="logo" src="./assets/logo-branca.png"></a>
         <ul class="navbar">
-            <li><a href="#quem_somos">QUEM SOMOS</a></li>
-            <li><a href="#projeto">PROJETO</a></li>
-            <li><a href="#calculadora">SIMULADOR</a></li>
-            <li><a href="#contato">CONTATO</a></li>
+            <li><a href="#quem_somos">sobre nós</a></li>
+            <li><a href="#projeto">projeto</a></li>
+            <li><a href="#contato">contato</a></li>
+            <li><a href="#eventos">eventos</a></li>
+            <li><a href="#novidades">novidades</a></li>
         </ul>
         <div class="btn_header">
-            <button id="btn_login"><a href="./login e cadastro/login.html">login</a></button><br>
-            <button id="btn_cadastro"><a href="./login e cadastro/cadastro.html">Cadastro</a></button><br>
+            <button id="btn_login_id" class="btn_login_class"><a
+                    href="./login e cadastro/login.html">login</a></button><br>
+            <button id="btn_cadastro_id" class="btn_cadastro_class"><a
+                    href="./login e cadastro/cadastro.html">cadastro</a></button><br>
         </div>
     </header>
     <main>
-        <div id="home" class="home">
-            <div class="textos_home">
-                <h1>Bem-vindos amantes<br>
-                    da música, onde o<br>
-                    Ritmo move Almas.
-                </h1>
-                <p>Explore um universo de melodias sem fronteiras.
-                    Junte-se a nós e deixe sua música ecoar pelo infinito.</p>
-                <button><a href="./login e cadastro/cadastro.html">Cadastrar</a></button>
+        <div id="home" class="home_class">
+            <div class="esquerdo_home">
+                <div class="textos_home">
+                    <h1>deixe que o <span>ritmo</span><br>
+                        toque a sua <span>alma!</span>
+                    </h1>
+                    <p>Explore um universo de melodias sem fronteiras.
+                        <br>Junte-se a nós e deixe sua música ecoar pelo infinito.
+                    </p>
+                </div>
+                <button class="btn_cadastro_class"><a href="./login e cadastro/cadastro.html">acesse
+                        gratuitamente</a></button>
             </div>
-            <div class="imagem_home">
-                <img src="./assets/imagem_home.png" alt="homem tocando guitarra com a alma">
+            <div class="direito_home">
+                <iframe class="video_home" src="https://www.youtube.com/embed/nBCFnfHnLbM"></iframe>
             </div>
         </div>
         <div id="quem_somos">
-
+            <div class="textos_quem_somos">
+                <h1>Sobre nós</h1>
+                <p>Na Melodia Sem Fronteiras, somos mais do que uma plataforma de aprendizado musical.
+                    Somos uma comunidade unida por um objetivo comum: desenvolver profissionais na música de
+                    forma avançada e gratuita. Valorizamos a colaboração e o apoio mútuo, promovendo um
+                    ambiente de aprendizado inclusivo e acessível para todos os apaixonados por música.
+                    Nosso compromisso é oferecer recursos de alta qualidade e oportunidades de crescimento
+                    profissional, capacitando nossos membros a atingir seus objetivos musicais com excelência.
+                    Juntos, crescemos e prosperamos, impulsionados pela paixão pela música e pelo desejo de
+                    alcançar novos patamares em nossa jornada musical.</p>
+            </div>
+            <div class="topicos_quem_somos">
+                <div class="topico">
+                    <div class="img_quem_somos">
+                        <img src="./assets/missao.png" alt="">
+                    </div>
+                    <p>Capacitar músicos e profissionais da indústria com habilidades essenciais</p>
+                </div>
+                <div class="topico">
+                    <div class="img_quem_somos">
+                        <img src="./assets/alvo.png" alt="">
+                    </div>
+                    <p>Tornar a principal plataforma de aprendizado gratuito para a indústria musical globalmente</p>
+                </div>
+                <div class="topico">
+                    <div class="img_quem_somos">
+                        <img src="./assets/valor.png" alt="">
+                    </div>
+                    <p>Excelência, integridade e acessibilidade em educação musical para todos.</p>
+                </div>
+                <div class="topico">
+                    <div class="img_quem_somos">
+                        <img src="./assets/equipe.png" alt="">
+                    </div>
+                    <p>Voluntarios e profissionais apaixonados pela educação e pela música.</p>
+                </div>
+            </div>
         </div>
         <div id="projeto">
 
@@ -62,28 +104,26 @@
     </main>
     <footer>
         <div class="rodape_conteudo">
-            <img class="logo_rodape" src="imgs/logo.png">
+            <img class="logo_rodape" src="./assets/logo-branca.png">
             <div class="colunas">
                 <div class="coluna1">
                     <span>
-                        <h3>Início</h3>
+                        <h3>Acessar</h3>
                         <br>
-                        <a href="#comeco" class="menus_rodape">Home</a>
+                        <a href="./login e cadastro/login.html" class="button_rodape">Login</a>
                         <br>
-                        <a href="#calculadora" class="menus_rodape">Simulador</a>
-                        <br>
-                        <a href="../Login e Cadastro/direcionador.html" class="menus_rodape">Login/Cadastro</a>
+                        <a href="./login e cadastro/cadastro.html" class="button_rodape">Cadastro</a>
                         <br>
                     </span>
                 </div>
 
                 <div class="coluna2">
                     <span>
-                        <h3>Sobre nós</h3>
+                        <h3>Sobre</h3>
                         <br>
-                        <a href="#quem_somos" class="menus_rodape">Quem somos</a>
+                        <a href="#quem_somos" class="button_rodape">Quem somos</a>
                         <br>
-                        <a href="#projeto" class="menus_rodape">Projeto</a>
+                        <a href="#projeto" class="button_rodape">Projeto</a>
                         <br>
                     </span>
                 </div>
@@ -92,7 +132,7 @@
                     <span>
                         <h3>Suporte</h3>
                         <br>
-                        <a href="#contato" class="menus_rodape">Contato</a>
+                        <a href="#contato" class="button_rodape">Contato</a>
                     </span>
                 </div>
             </div>
@@ -103,4 +143,5 @@
 </html>
 
 <script src="./js/principal.js"></script>
+
 <body onload=""></body>
