@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --laranja: #FE5C00;
+    --laranja-hover: #c54a03;
+    --laranja-linear: linear-gradient(210deg, #FE5C00 50%, #983700);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.conteudo {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.esquerdo {
+    width: 55%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+    gap: 4%;
+}
+
+.textos h1 {
+    font-weight: 800;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    padding: 12px 5px;
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid #515151;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.esquerdo p {
+    font-size: 0.9rem;
+}
+
+.esquerdo a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+span {
+    font-weight: 700;
+}
+
+.btn {
+    background-color: var(--laranja);
+    padding: 10px 20px;
+    border-radius: 0px 8px 0px 8px;
+    border-color: transparent;
+    width: 60%;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: var(--laranja-hover);
+    cursor: pointer;
+}
+
+.direito {
+    width: 45%;
+    background: var(--laranja-linear);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.direito img {
+    width: 100%;
+}
