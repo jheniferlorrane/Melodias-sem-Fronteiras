@@ -33,7 +33,7 @@
                 <button class="btn" onclick="entrar()">Entrar</button>
             </div>
             <div class="direito">
-                <img class="logo" src="../assets/logo-100branca.png">
+                <img class="logo" src="../assets/logo-100branca.png" onclick="voltar()">
             </div>
         </div>
     </main>
@@ -41,6 +41,10 @@
 
 </html>
 <script>
+    function voltar(){
+        window.location.href = '../index.html'
+    }
+
     function aguardar() {
         console.log('Iniciando aguardar...');
     }

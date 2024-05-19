@@ -136,8 +136,7 @@ header {
     box-shadow: var(--shadow-preto);
 }
 
-#quem_somos{
-    background: var(--laranja-linear);
+.secao {
     padding: 8% 10%;
     display: flex;
     flex-direction: column;
@@ -145,27 +144,32 @@ header {
     justify-content: center;
 }
 
-.textos_quem_somos{
+#quem_somos {
+    background: var(--laranja-linear);
+}
+
+.textos_quem_somos {
     color: white;
     width: 80%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.textos_quem_somos h1{
+
+.textos_quem_somos h1 {
     text-transform: uppercase;
     font-weight: 900;
     font-size: 2rem;
 }
 
-.topicos_quem_somos{
+.topicos_quem_somos {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-around;
 }
 
-.topico{
+.topico {
     width: 20%;
     display: flex;
     align-items: center;
@@ -173,7 +177,7 @@ header {
     gap: 20px;
 }
 
-.img_quem_somos{
+.img_quem_somos {
     background-color: white;
     border-radius: 50%;
     border-color: transparent;
@@ -182,16 +186,55 @@ header {
     width: 45%;
 }
 
-.img_quem_somos img{
+.img_quem_somos img {
     width: 100%;
     padding: 20px;
 }
 
-.topico p{
-    text-align: center;
+.titulo_topico {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 10px
+}
+
+.topico_quem {
     color: white;
 }
 
+.topico p {
+    text-align: center;
+}
+
+.textos_projeto {
+    color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.textos_projeto h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.calculadora_e_grafico{
+    display: flex;
+    justify-content: space-around;
+}
+
+.topicos_projeto{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.topico_projeto {
+    color: black;
+    width: 35%;
+}
 
 .rodape_conteudo {
     display: flex;
@@ -242,6 +285,6 @@ header {
     justify-content: left;
 }
 
-h3{
+h3 {
     color: var(--laranja);
 }

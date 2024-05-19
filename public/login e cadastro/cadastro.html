@@ -43,9 +43,7 @@
                 <button class="btn" onclick="cadastrar()">Criar conta</button>
             </div>
             <div class="direito">
-                <img class="logo" src="../assets/logo-100branca.png">
-                <div class="chamada_login">
-                </div>
+                <img class="logo" src="../assets/logo-100branca.png" onclick="voltar()">
             </div>
         </div>
     </main>
@@ -53,6 +51,10 @@
 
 </html>
 <script>
+    function voltar(){
+        window.location.href = '../index.html'
+    }
+
     function aguardar() {
         console.log('Iniciando aguardar...');
     }
