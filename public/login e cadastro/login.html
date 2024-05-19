@@ -13,11 +13,6 @@
 
 <body>
     <main>
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
         <div class="conteudo">
             <div class="esquerdo">
                 <div class="textos">
@@ -27,7 +22,12 @@
                     <input id="email_input" class="input" placeholder="Digite seu email"><br>
                     <input id="senha_input" class="input" type="password" placeholder="Digite seu senha">
                 </div>
-                <div class="chamada_cadastro">
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+                <div class="chamada">
                     <p>Não possui conta ainda? <a href="cadastro.html">Crie agora grátis</a></p>
                 </div>
                 <button class="btn" onclick="entrar()">Entrar</button>

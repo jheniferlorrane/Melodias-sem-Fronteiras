@@ -6,11 +6,13 @@ create database melodiasSemFronteiras;
 use melodiasSemFronteiras;
 
 create table usuario (
-id int primary key auto_increment,
+idUsuario int primary key auto_increment,
 nome varchar(50),
 sobrenome varchar(50),
-email varchar(264),
+email varchar(264) unique,
 senha varchar(50)
 );
 
 select * from usuario;
+
+truncate usuario;

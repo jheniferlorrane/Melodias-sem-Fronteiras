@@ -13,9 +13,9 @@
 
 <body>
     <main>
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
+        <div class="alerta_cadastrado">
+            <div class="cardCadastrado" id="cardCadastrado">
+                <span id="mensagem_cadastrado"></span>
             </div>
         </div>
         <div class="conteudo">
@@ -31,10 +31,15 @@
                     <input id="confirmacao_senha_input" class="input" type="password"
                         placeholder="Confirme a sua senha">
                 </div>
-                <p>Ao criar uma conta, você declara que está de<br>
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+                <p class="chamada">Ao criar uma conta, você declara que está de<br>
                     acordo com os <span>Termos de Uso</span> & <span>Política de<br>
                         Privacidade</span>.</p>
-                <p>Já possui conta? <a href="../login e cadastro/login.html">Entre agora</a></p>
+                <p class="chamada">Já possui conta? <a href="../login e cadastro/login.html">Entre agora</a></p>
                 <button class="btn" onclick="cadastrar()">Criar conta</button>
             </div>
             <div class="direito">
@@ -63,6 +68,8 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        const indiceArroba = emailVar.indexOf("@");
+
         if (
             nomeVar == "" ||
             sobrenomeVar == "" ||
@@ -72,7 +79,19 @@
         ) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
-                "(Mensagem de erro para todos os campos em branco)";
+                "Preencha os campos em branco";
+
+            finalizarAguardar();
+            return false;
+        } else if (confirmacaoSenhaVar != senhaVar) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Senhas não conferem.";
+
+            finalizarAguardar();
+            return false;
+        } else if (indiceArroba == -1) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Digite um email válido!";
 
             finalizarAguardar();
             return false;
@@ -99,9 +118,9 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    cardErro.style.display = "block";
+                    cardCadastrado.style.display = "block";
 
-                    mensagem_erro.innerHTML =
+                    mensagem_cadastrado.innerHTML =
                         "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                     setTimeout(() => {
@@ -121,23 +140,7 @@
 
         return false;
     }
-
-    function listar() {
-        fetch("/empresas/listar", {
-            method: "GET",
-        })
-            .then(function (resposta) {
-                resposta.json().then((empresas) => {
-                    empresas.forEach((empresa) => {
-                        listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-                    });
-                });
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-    }
-
+    
     function sumirMensagem() {
         cardErro.style.display = "none";
     }

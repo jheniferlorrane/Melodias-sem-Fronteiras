@@ -14,6 +14,14 @@
     font-family: 'Inter', sans-serif;
 }
 
+.alerta_cadastrado{
+    position: fixed;
+    width: 55%;
+    background-color: transparent;
+    font-size: 0.9rem;
+    padding: 15px 30px;
+}
+
 .conteudo {
     display: flex;
     height: 100vh;
@@ -51,6 +59,12 @@
     outline: none;
 }
 
+.alerta_erro{
+    background-color: transparent;
+    color: red;
+    font-size: 0.9rem;    
+}
+
 .esquerdo p {
     font-size: 0.9rem;
 }
@@ -80,6 +94,10 @@ span {
 .btn:hover {
     background-color: var(--laranja-hover);
     cursor: pointer;
+}
+
+.chamada{
+    width: 60%;
 }
 
 .direito {
