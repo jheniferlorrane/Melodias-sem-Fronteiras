@@ -28,7 +28,8 @@
                     <input id="sobrenome_input" class="input" placeholder="Digite seu sobrenome"><br>
                     <input id="email_input" class="input" placeholder="Digite seu email"><br>
                     <input id="senha_input" class="input" type="password" placeholder="Digite seu senha"><br>
-                    <input id="confirmacao_senha_input" class="input" type="password" placeholder="Confirme a sua senha">
+                    <input id="confirmacao_senha_input" class="input" type="password"
+                        placeholder="Confirme a sua senha">
                 </div>
                 <p>Ao criar uma conta, você declara que está de<br>
                     acordo com os <span>Termos de Uso</span> & <span>Política de<br>
@@ -47,6 +48,14 @@
 
 </html>
 <script>
+    function aguardar() {
+        console.log('Iniciando aguardar...');
+    }
+
+    function finalizarAguardar() {
+        console.log('Finalizando aguardar...');
+    }
+
     function cadastrar() {
         aguardar();
         var nomeVar = nome_input.value;

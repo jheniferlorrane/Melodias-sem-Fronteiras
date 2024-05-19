@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/png" href="../assets/icon.png">
     <link rel="stylesheet" href="../css/cadastro_login.css">
+    <script src="../js/sessao.js"></script>
 </head>
 
 <body>
@@ -27,7 +28,7 @@
                     <input id="senha_input" class="input" type="password" placeholder="Digite seu senha">
                 </div>
                 <div class="chamada_cadastro">
-                    <p>Não possui conta ainda? <a href="../login e cadastro/cadastro.html">Crie agora grátis</a></p>
+                    <p>Não possui conta ainda? <a href="cadastro.html">Crie agora grátis</a></p>
                 </div>
                 <button class="btn" onclick="entrar()">Entrar</button>
             </div>
@@ -88,10 +89,9 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "../dashboard/dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
