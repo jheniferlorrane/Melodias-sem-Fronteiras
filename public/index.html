@@ -106,7 +106,7 @@
                         <input id="valor_input" class="input" placeholder="Valor pago pela educação musical mensalmente"><br>
                         <input id="recursos_input" class="input" placeholder="A falta de recursos adequados afeta o seu aprendizado?">
                     </div>
-                    <div class="alerta_erro">
+                    <div class="alerta_erro" id="alerta_erro">
                         <div class="card_erro" id="cardErro">
                             <span id="mensagem_erro"></span>
                         </div>
@@ -245,6 +245,7 @@
         aguardar();
 
         if (valor == "" || recursos == "") {
+            alerta_erro.style.display='block'
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir";
             finalizarAguardar();
             return false;

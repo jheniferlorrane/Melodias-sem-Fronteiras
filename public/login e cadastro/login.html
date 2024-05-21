@@ -22,7 +22,7 @@
                     <input id="email_input" class="input" placeholder="Digite seu email"><br>
                     <input id="senha_input" class="input" type="password" placeholder="Digite seu senha">
                 </div>
-                <div class="alerta_erro">
+                <div class="alerta_erro" id="alerta_erro">
                     <div class="card_erro" id="cardErro">
                         <span id="mensagem_erro"></span>
                     </div>
@@ -60,6 +60,7 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
+            alerta_erro.style.display = "block"
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir";
             finalizarAguardar();

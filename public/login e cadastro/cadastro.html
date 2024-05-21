@@ -31,7 +31,7 @@
                     <input id="confirmacao_senha_input" class="input" type="password"
                         placeholder="Confirme a sua senha">
                 </div>
-                <div class="alerta_erro">
+                <div class="alerta_erro" id="alerta_erro">
                     <div class="card_erro" id="cardErro">
                         <span id="mensagem_erro"></span>
                     </div>
@@ -79,6 +79,7 @@
             senhaVar == "" ||
             confirmacaoSenhaVar == ""
         ) {
+            alerta_erro.style.display="block";
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
                 "Preencha os campos em branco";
@@ -86,12 +87,14 @@
             finalizarAguardar();
             return false;
         } else if (confirmacaoSenhaVar != senhaVar) {
+            alerta_erro.style.display="block";
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Senhas não conferem.";
 
             finalizarAguardar();
             return false;
         } else if (indiceArroba == -1) {
+            alerta_erro.style.display="block";
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Digite um email válido!";
 
