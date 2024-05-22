@@ -5,6 +5,7 @@
     --laranja-hover: #c54a03;
     --laranja-linear: linear-gradient(210deg, #FE5C00 50%, #983700);
     --shadow-preto: 17px 17px 7px -1px rgba(4, 4, 4, 0.7);
+    --preto-liner: linear-gradient(90deg, #0d0d0d 50%, #707070);
 }
 
 * {
@@ -140,7 +141,7 @@ header {
     padding: 8% 10%;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 50px;
     justify-content: center;
 }
 
@@ -194,7 +195,6 @@ header {
 .titulo_topico {
     font-weight: 700;
     text-transform: uppercase;
-    margin: 10px
 }
 
 .topico_quem {
@@ -277,7 +277,7 @@ header {
     border-bottom: 1px solid #515151;
 }
 
-.input::placeholder{
+.input::placeholder {
     text-align: center;
 }
 
@@ -285,16 +285,51 @@ header {
     outline: none;
 }
 
-.alerta_erro{
+.alerta_erro {
     background-color: transparent;
     color: red;
-    font-size: 0.8rem;    
+    font-size: 0.8rem;
     display: none;
     font-weight: 700;
 }
 
 .simular button {
     width: 40%;
+}
+
+.modal_div {
+    margin-top: 22%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    flex-direction: column;
+    color: white;
+}
+
+#conteudo_modal {
+    margin: auto;
+    border-radius: 20px;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header_modal {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    left: 20px;
+}
+
+.header_modal button {
+    font-size: 0.5rem;
 }
 
 .topicos_projeto {
@@ -307,6 +342,13 @@ header {
 .topico_projeto {
     color: black;
     width: 35%;
+}
+
+#contato {
+    width: 100%;
+    height: 90vh;
+    color: white;
+    background: var(--preto-liner);
 }
 
 .rodape_conteudo {
@@ -360,40 +402,4 @@ header {
 
 h3 {
     color: var(--laranja);
-}
-
-.modal_div{
-    margin-top: 22%;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    flex-direction: column;
-    color: white;
-}
-
-#conteudo_modal{
-    margin: auto;
-    width: 50%;
-    height: 50%;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.header_modal{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    left: 20px;
-}
-
-.header_modal button{
-    font-size: 0.5rem;
-    border-radius: 0px 0px 0px 8px;
 }

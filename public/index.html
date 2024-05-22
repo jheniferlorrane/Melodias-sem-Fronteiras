@@ -120,8 +120,9 @@
                 <div id="modal_div" class="modal_div" style="display: none;">
                     <div id="conteudo_modal">
                         <div class="header_modal">
-                            <button class="btn" id="fechar_modal" onclick="fecharModal()">Fechar</button></div>
-                            <div id="exibir_resultado"></div>
+                            <button class="btn" id="fechar_modal" onclick="fecharModal()">Fechar</button>
+                        </div>
+                        <div id="exibir_resultado"></div>
                     </div>
                 </div>
                 <div class="grafico">
@@ -159,13 +160,18 @@
                 </div>
             </div>
         </div>
-        <div id="contato">
+        <div id="contato" class="secao">
+            <div class="">
+                <h1>Deixe suas informações para entramos em contato</h1>
+                <input id="nome_input" class="input" placeholder="Digite seu nome"><br>
+                <input id="email_input" class="input" placeholder="Digite seu email"><br>
+                <button class="btn" onclick="contato()">Receber novidades</button>
+            </div>
+        </div>
+        <div id="eventos" class="secao">
 
         </div>
-        <div id="eventos">
-
-        </div>
-        <div id="#novidades">
+        <div id="#novidades" class="secao">
             <div class="colunas_novidades">
 
             </div>
@@ -175,7 +181,6 @@
             <div class="colunas_novidades">
 
             </div>
-        </div>
     </main>
     <footer>
         <div class="rodape_conteudo">
@@ -270,7 +275,7 @@
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 1500)
             let recursosSim = valor * 1.45
 
             modal();
@@ -279,7 +284,7 @@
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        alerta_erro.style.display = 'none'
     }
 
     function cadastro() {
