@@ -101,10 +101,14 @@
             </div>
             <div class="calculadora_e_grafico">
                 <div class="simular">
-                    <h1 class="titulo_calculadora_simulador">Simulador dos Impactos das Barreiras na Educação Musical em sua vida</h1>
+                    <h1 class="titulo_calculadora_simulador">Simulador dos Impactos das Barreiras na Educação
+                        Musical em
+                        sua vida</h1>
                     <div class="inputs">
-                        <input id="valor_input" class="input" placeholder="Valor pago pela educação musical mensalmente"><br>
-                        <input id="recursos_input" class="input" placeholder="A falta de recursos adequados afeta o seu aprendizado?">
+                        <input id="valor_input" class="input"
+                            placeholder="Valor pago mensalmente para ter uma educação musical"><br>
+                        <input id="recursos_input" class="input"
+                            placeholder="A falta de recursos adequados afeta o seu aprendizado?">
                     </div>
                     <div class="alerta_erro" id="alerta_erro">
                         <div class="card_erro" id="cardErro">
@@ -113,11 +117,18 @@
                     </div>
                     <button class="btn" onclick="simular()">Simular</button>
                 </div>
+                <div id="modal_div" class="modal_div" style="display: none;">
+                    <div id="conteudo_modal">
+                        <div class="header_modal">
+                            <button class="btn" id="fechar_modal" onclick="fecharModal()">Fechar</button></div>
+                            <div id="exibir_resultado"></div>
+                    </div>
+                </div>
                 <div class="grafico">
                     <h1 class="titulo_calculadora_simulador">Evolução das Barreiras na Educação Musical<br>
                         (2019-2023)</h1>
                     <canvas id="coluna_canva"></canvas>
-                    <p>Dados retirados dos relatórios de organizações como a UNESCO, IFPI (International 
+                    <p>Dados retirados dos relatórios de organizações como a UNESCO, IFPI (International
                         Federation of the Phonographic Industry), ou entidades locais de música e cultura.</p>
                 </div>
             </div>
@@ -207,8 +218,6 @@
 </html>
 <script>
     const coluna = document.getElementById('coluna_canva');
-    const valor = valor_input.value;
-    const recursos = recursos_input.value
 
     new Chart(coluna, {
         type: 'bar',
@@ -217,11 +226,11 @@
             datasets: [{
                 label: 'Barreira Financeira (%)',
                 backgroundColor: 'black',
-                data: [45, 	50, 55, 60,65]
+                data: [45, 50, 55, 60, 65]
             }, {
                 label: 'Falta de Recursos Educacionais Adequados (%)',
                 backgroundColor: 'rgb(254, 92, 0',
-                data: [35,38, 40, 42, 45]
+                data: [35, 38, 40, 42, 45]
             }]
         },
         options: {
@@ -241,17 +250,31 @@
         console.log('Finalizando aguardar...');
     }
 
-    function simular(){
+    function modal() {
+        modal_div.style.display = "block"
+    }
+
+    function fecharModal() {
+        modal_div.style.display = "none"
+    }
+
+    function simular() {
+        const valor = Number(valor_input.value);
+        const recursos = recursos_input.value
         aguardar();
 
         if (valor == "" || recursos == "") {
-            alerta_erro.style.display='block'
+            alerta_erro.style.display = 'block'
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir";
             finalizarAguardar();
             return false;
         }
         else {
             setInterval(sumirMensagem, 5000)
+            let recursosSim = valor * 1.45
+
+            modal();
+            exibir_resultado.innerHTML = `${recursosSim}`
         }
     }
 
