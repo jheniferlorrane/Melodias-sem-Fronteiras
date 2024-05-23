@@ -14,3 +14,6 @@ senha varchar(50)
 );
 
 select * from usuario;
+
+
+truncate table usuario;
