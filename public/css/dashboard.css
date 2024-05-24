@@ -22,11 +22,12 @@ header {
     padding-bottom: 15px;
     z-index: 2;
     align-items: center;
-    gap: 1.5%;
+    gap: 1.2%;
 }
 
 .logo {
     width: 150px;
+    margin-right: 15px;
 }
 
 .navbar {
@@ -85,4 +86,15 @@ header {
     width: 80%;
     display: flex;
     flex-direction: row;
+}
+
+.right_header{
+    margin: 0;
+    padding: 0;
+    width: 10%;
+}
+
+.foto_perfil{
+    width: 60px;
+    border-radius: 5%;
 }

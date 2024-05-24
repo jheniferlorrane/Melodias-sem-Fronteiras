@@ -13,7 +13,46 @@ email varchar(264) unique,
 senha varchar(50)
 );
 
-select * from usuario;
+create table receberNovidades (
+idReceberNovidades int primary key auto_increment,
+nome varchar(50),
+email varchar(264) unique
+);
 
+create table notas (
+idNotas int primary key auto_increment,
+nota varchar(3) unique
+);
 
-truncate table usuario;
+create table cifras (
+idCifras int auto_increment,
+cifra char(1) unique,
+fkNotas int,
+primary key (idCifras, fkNotas),
+foreign key (fkNotas) references notas(idNotas)
+);
+
+insert into notas(nota) values
+('Dó'),
+('Ré'),
+('Mi'),
+('Fá'),
+('Sol'),
+('Lá'),
+('Si');
+
+select * from notas;
+
+insert into cifras(cifra, fkNotas) values
+('C', 1),
+('D', 2),
+('E', 3),
+('F', 4),
+('G', 5),
+('A', 6),
+('B', 7);
+
+select * from cifras;
+
+select notas.nota, cifras.cifra
+from notas join cifras on idNotas = fkNotas order by idNotas;

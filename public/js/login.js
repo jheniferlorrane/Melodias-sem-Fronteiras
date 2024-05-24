@@ -13,7 +13,7 @@ function finalizarAguardar() {
 function entrar() {
     aguardar();
 
-    var emailVar = email_input.value;
+    var emailVar = email_input.value.toLowerCase();
     var senhaVar = senha_input.value;
 
     if (emailVar == "" || senhaVar == "") {
