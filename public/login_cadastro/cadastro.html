@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cadastro - Melodias Sem Fronteiras</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="../assets/icon.png">
+    <link rel="stylesheet" href="../css/cadastro_login.css">
+    <script src="../js/sessao.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="alerta_cadastrado">
+            <div class="cardCadastrado" id="cardCadastrado">
+                <span id="mensagem_cadastrado"></span>
+            </div>
+        </div>
+        <div class="conteudo">
+            <div class="esquerdo">
+                <div class="textos">
+                    <h1>Criar conta grátis</h1>
+                </div>
+                <div class="inputs">
+                    <input id="nome_input" class="input" placeholder="Digite seu nome"><br>
+                    <input id="sobrenome_input" class="input" placeholder="Digite seu sobrenome"><br>
+                    <input id="email_input" class="input" placeholder="Digite seu email"><br>
+                    <input id="senha_input" class="input" type="password" placeholder="Digite seu senha"><br>
+                    <input id="confirmacao_senha_input" class="input" type="password"
+                        placeholder="Confirme a sua senha">
+                </div>
+                <div class="alerta_erro" id="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+                <p class="chamada">Ao criar uma conta, você declara que está de<br>
+                    acordo com os <span>Termos de Uso</span> & <span>Política de<br>
+                        Privacidade</span>.</p>
+                <p class="chamada">Já possui conta? <a href="../login_cadastro/login.html">Entre agora</a></p>
+                <button class="btn" onclick="cadastrar()">Criar conta</button>
+            </div>
+            <div class="direito">
+                <img class="logo" src="../assets/logo-100branca.png" onclick="voltar()">
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+<script src="../js/cadastro.js"></script>

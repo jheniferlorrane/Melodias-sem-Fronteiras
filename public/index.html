@@ -18,8 +18,8 @@
         <ul class="navbar">
             <li><a href="#quem_somos">sobre nós</a></li>
             <li><a href="#projeto">projeto</a></li>
+            <li><a href="#plataforma">plataforma</a></li>
             <li><a href="#eventos">eventos</a></li>
-            <li><a href="#novidades">novidades</a></li>
         </ul>
         <div class="btn_header">
             <button id="btn_login_id" class="btn" onclick="entrar()">login</button><br>
@@ -47,7 +47,8 @@
             <div class="textos_quem_somos">
                 <h1>Sobre nós</h1>
                 <p>Nós somos mais do que uma plataforma de aprendizado musical.
-                    Somos uma comunidade unida por um objetivo comum: desenvolver profissionais na música de
+                    Somos uma comunidade unida por um objetivo comum: <b>manter a música mais viva que nunca</b>
+                    e como consequencia nosso objetivo se torna também o de desenvolver profissionais na música de
                     forma avançada e gratuita. Valorizamos a colaboração e o apoio mútuo, promovendo um
                     ambiente de aprendizado inclusivo e acessível para todos os apaixonados por música.
                     Nosso compromisso é oferecer recursos de alta qualidade e oportunidades de crescimento
@@ -89,20 +90,17 @@
         <div id="projeto" class="secao">
             <div class="textos_projeto">
                 <h1>O surgimento do projeto</h1>
-                <p>O Projeto Melodias Sem Fronteiras surgiu da percepção de uma necessidade
-                    urgente no campo da educação musical: a criação de um ambiente totalmente
-                    gratuito, intuitivo e inclusivo. Observamos que, apesar da importância da
-                    música na cultura, na saúde e na economia global, muitos músicos e aspirantes
-                    a músicos enfrentam barreiras significativas no acesso a uma educação musical
-                    de qualidade. Essas barreiras incluem questões financeiras, falta de recursos
-                    educacionais adequados e a necessidade de um ambiente de aprendizado que acolha
-                    pessoas de todas as origens e níveis de habilidade.</p>
+                <p>O Projeto Melodias Sem Fronteiras nasceu da compreensão das dificuldades enfrentadas por cada amante da música. 
+                    <b>Com o propósito de manter a música pulsando nos corações de todos</b>, vimos que tinha necessidades urgentes em varios campos da música 
+                    mas principalmente no campo da educação. Embora a música desempenhe um papel fundamental na cultura, saúde e economia 
+                    global, muitos músicos e aspirantes enfrentam desafios significativos para acessar uma educação musical 
+                    de qualidade. Esses desafios incluem restrições financeiras, falta de recursos educacionais adequados 
+                    e a necessidade de um ambiente de aprendizado acolhedor para pessoas de todas as origens e níveis de habilidade.</p>
             </div>
             <div class="calculadora_e_grafico">
                 <div class="simular">
                     <h1 class="titulo_calculadora_simulador">Simulador dos Impactos das Barreiras na Educação
-                        Musical em
-                        sua vida</h1>
+                        Musical em 5 anos na sua vida</h1>
                     <div class="inputs">
                         <input id="valor_input" class="input"
                             placeholder="Valor pago mensalmente para ter uma educação musical"><br>
@@ -121,7 +119,9 @@
                         <div class="header_modal">
                             <button class="btn" id="fechar_modal" onclick="fecharModal()">Fechar</button>
                         </div>
-                        <div id="exibir_resultado"></div>
+                        <div class="resultado">
+                            <div id="exibir_resultado"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="grafico">
@@ -160,30 +160,62 @@
             </div>
         </div>
         <div id="eventos" class="secao">
-            <h1>Para se increver nos eventos é necessario se cadastrar</h1>
-            <button id="btn_cadastro_id" class="btn" onclick="cadastro()">cadastro</button><br>
+            <div id="carrosel" class="carrosel">
+                <div id="container" class="container">
+                    <div class="itens_carrosel">
+                        <div class="banner">
+                            <img src="assets/bannerEvento.png">
+                        </div>
+                    </div>
+                    <div class="itens_carrosel">
+                        <div class="banner">
+                            <img src="assets/bannerEvento.png">
+                        </div>
+                    </div>
+                    <div class="itens_carrosel">
+                        <div class="banner">
+                            <img src="assets/bannerEvento.png">
+                        </div>
+                    </div>
+                    <div class="itens_carrosel">
+                        <div class="banner">
+                            <img src="assets/bannerEvento.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="escurecer"></div>
+            <div class="chamada_acao_eventos">
+                <h1>Para se increver nos eventos
+                    <br>é necessario estar cadastrado
+                </h1><br>
+                <button id="btn_cadastro_id" class="btn" onclick="cadastro()">cadastre-se já</button><br>
+            </div>
         </div>
-        <div id="#novidades" class="secao">
-            <div class="colunas_novidades">
-                <div class="novidade">
-                    <h1>Novidade 1</h1>
-                    <img src="">
+        <div class="contato" id="contato">
+            <div class="conteudo_contato">
+                <div class="texto_contato">
+                    <h1>Ficou com duvidas? nos conte abaixo. <br>
+                        Estamos prontos para lhe atender e lhe ajudar.
+                    </h1>
                 </div>
-                <div class="novidade">
-                    <h1>Novidade 2</h1>
-                    <img src="">
+                <div class="container_contato">
+                    <div class="esquerdo">
+                        <h2>Nome:</h2>
+                        <input class="input_contato input" type="search"><br>
+                        <h2>Email:</h2>
+                        <input class="input_contato input" type="search"><br>
+                        <h2>Assunto:</h2>
+                        <input class="input_contato input" type="search"><br>
+                    </div>
+                    <div class="direito">
+                        <h2>Descreva:</h2>
+                        <textarea class="input_contato_descreva input"></textarea><br>
+                    </div>
                 </div>
-                <div class="novidade">
-                    <h1>Novidade 3</h1>
-                    <img src="">
-                </div>
+                <button id="btn_contato" class="btn">Entrar em Contato</button><br>
             </div>
-            <div class="receber_novidades">
-                <h1>Receba as novidades por email</h1>
-                <input id="nome_input" class="input" placeholder="Digite seu nome"><br>
-                <input id="email_input" class="input" placeholder="Digite seu email"><br>
-                <button class="btn" onclick="contato()">Receber novidades</button>
-            </div>
+        </div>
     </main>
     <footer>
         <div class="rodape_conteudo">
@@ -193,9 +225,9 @@
                     <span>
                         <h3>Acessar</h3>
                         <br>
-                        <a href="./login e cadastro/login.html" class="button_rodape">Login</a>
+                        <a href="./login_cadastro/login.html" class="button_rodape">Login</a>
                         <br>
-                        <a href="./login e cadastro/cadastro.html" class="button_rodape">Cadastro</a>
+                        <a href="./login_cadastro/cadastro.html" class="button_rodape">Cadastro</a>
                         <br>
                     </span>
                 </div>

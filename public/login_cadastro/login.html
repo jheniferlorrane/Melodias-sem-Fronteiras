@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login - Melodias Sem Fronteiras</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="../assets/icon.png">
+    <link rel="stylesheet" href="../css/cadastro_login.css">
+    <script src="../js/sessao.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="conteudo">
+            <div class="esquerdo">
+                <div class="textos">
+                    <h1>Acesse sua conta</h1>
+                </div>
+                <div class="inputs">
+                    <input id="email_input" class="input" placeholder="Digite seu email"><br>
+                    <input id="senha_input" class="input" type="password" placeholder="Digite seu senha">
+                </div>
+                <div class="alerta_erro" id="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+                <div class="chamada">
+                    <p>Não possui conta ainda? <a href="cadastro.html">Crie agora grátis</a></p>
+                </div>
+                <button class="btn btnLogin" onclick="entrar()">Entrar</button>
+            </div>
+            <div class="direito">
+                <img class="logo" src="../assets/logo-100branca.png" onclick="voltar()">
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+<script src="../js/login.js"></script>

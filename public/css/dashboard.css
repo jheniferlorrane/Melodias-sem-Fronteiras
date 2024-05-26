@@ -76,25 +76,79 @@ header {
     cursor: pointer;
 }
 
-#banner img{
+#carrosel {
+    display: flex;
+    flex-direction: column;
+}
+
+#banner img {
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.left_header{
+#carrosel button {
+    position: absolute;
+    z-index: 1;
+    margin-top: 36%;
+    margin-left: 28%;
+}
+
+.left_header {
     width: 80%;
     display: flex;
     flex-direction: row;
 }
 
-.right_header{
+.right_header {
     margin: 0;
     padding: 0;
     width: 10%;
 }
 
-.foto_perfil{
-    width: 60px;
+.foto_perfil {
+    width: 40px;
     border-radius: 5%;
+}
+
+.carrosel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    animation: slide 120s infinite;
+}
+
+.itens_carrosel {
+    flex: 0 0 100%;
+}
+
+.banner img {
+    width: 100%;
+}
+
+@keyframes slide {
+
+    0%, 12.5% { /*0% e 12.5% é do Tempo (aqui digo que de 0% a 12.5 ele fica parado*/
+        transform: translateX(0); 
+    }
+
+    25%, 37.5% {
+        transform: translateX(-100%); 
+    }
+
+    50%, 62.5% {
+        transform: translateX(-200%);
+    }
+
+    75%, 87.5% {
+        transform: translateX(-300%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }

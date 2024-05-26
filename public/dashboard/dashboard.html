@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <title>Dashboard - Melodias Sem Fronteiras</title>
@@ -8,19 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/png" href="../assets/icon.png">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/slides.js"></script>
+    <script src="../js/sessao.js"></script>
 </head>
 
 <body>
     <header>
-        <div class="left_header"> 
+        <div class="left_header">
             <a href="dashboard.html" class="a_logo_header"><img class="logo" src="../assets/logo-branca.png"></a>
             <ul class="navbar">
                 <li><a href="dashboard.html">home</a></li>
-                <li><a href="aulas.html">aulas</a></li>
-                <li><a href="videos.html">videos</a></li>
-                <li><a href="jogos.html">jogos</a></li>
-                <li><a href="eventos.html">eventos</a></li>
-                <li><a href="audicoes.html">audições</a></li>
+                <li><a href="jogos/jogos.html">jogos</a></li>
+                <li><a href="eventos/eventos.html">eventos</a></li>
+                <li><a href="audicoes/audicoes.html">audições</a></li>
+                <li><a href="novidades/novidades.html">novidades</a></li>
             </ul>
         </div>
         <div class="right_header">
@@ -28,11 +30,53 @@
         </div>
     </header>
     <main>
-        <div id="banner">
-            <img src="../assets/bannerDash.png" onclick="novidades()">
+        <div id="carrosel" class="carrosel">
+            <div id="container" class="container">
+                <div class="itens_carrosel">
+                    <div class="banner">
+                        <img src="../assets/bannerEvento.png" onclick="consertoViolino()" alt="Evento">
+                    </div>
+                </div>
+                <div class="itens_carrosel">
+                    <div class="banner">
+                        <img src="../assets/bannerNovidades.png" onclick="novidades()" alt="Novidades">
+                    </div>
+                </div>
+                <div class="itens_carrosel">
+                    <div class="banner">
+                        <img src="../assets/bannerJogo.png" onclick="jogoMemoria()" alt="Jogo">
+                    </div>
+                </div>
+                <div class="itens_carrosel">
+                    <div class="banner">
+                        <img src="../assets/bannerAudicaos.png" onclick="audicao()" alt="Audição">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="secao">
+
         </div>
     </main>
 </body>
 
 </html>
-<script src="../js/dashboard.js"></script>
+<script>
+    let b_usuario = sessionStorage.NOME_USUARIO;
+
+    function novidades() {
+        window.location.href = 'novidades/novidades.html'
+    }
+
+    function consertoViolino() {
+        window.location.href = 'eventos/eventos/astrosSemFronteiras.html'
+    }
+
+    function jogoMemoria() {
+        window.location.href = 'jogos/jogos/jogoMemoria.html'
+    }
+
+    function audicao() {
+        window.location.href = 'audicoes/audicoes/audicao.html'
+    }
+</script>

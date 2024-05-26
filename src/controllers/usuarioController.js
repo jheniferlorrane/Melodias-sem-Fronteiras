@@ -39,12 +39,6 @@ function autenticar(req, res) {
     }
 }
 
-module.exports = {
-    autenticar
-};
-
-
-
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;

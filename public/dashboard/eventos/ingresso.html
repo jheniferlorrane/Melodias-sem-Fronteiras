@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Seu Ingresso - Melodias Sem Fronteiras</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="../assets/icon.png">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <script src="../../js/sessao.js"></script>
+</head>
+
+<body onload="exibir()">
+    <header>
+        <div class="left_header">
+            <a href="eventos.html" class="a_logo_header"><img class="logo" src="../../assets/logo-branca.png"></a>
+        </div>
+        <div class="right_header">
+            <a href="eventos.html" class="foto_perfil"><img class="foto_perfil"
+                    src="../../assets/fotoPerfil/1.jpg"></a>
+        </div>
+    </header>
+    <main>
+        <div id="exibir_div"></div>
+    </main>
+</body>
+
+</html>
+<script>
+    const numerosAleatorios = [];
+    function gerarIngresso() {
+        function gerarNumeros() {
+            return Math.floor(Math.random() * 10);
+        }
+
+        for (let contador = 0; contador < 10; contador++) {
+            numerosAleatorios.push(gerarNumeros());
+        }
+
+        console.log(numerosAleatorios);
+    }
+
+    function exibir() {
+        gerarIngresso();
+        let b_usuario = sessionStorage.NOME_USUARIO;
+
+        let ingresso = "";
+        let tamanhoLista = numerosAleatorios.length;
+
+        exibir_div.innerHTML = `olá`
+
+        for (let posicao = 0; posicao < tamanhoLista; posicao++) {
+            ingresso += numerosAleatorios[posicao];
+        }
+
+
+        exibir_div.innerHTML = `Olá ${b_usuario} seu ingresso é ${ingresso}`
+    }
+</script>
