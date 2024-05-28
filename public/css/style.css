@@ -84,7 +84,7 @@ header {
     cursor: pointer;
 }
 
-main{
+main {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -332,7 +332,7 @@ main{
     align-items: center;
 }
 
-.resultado{
+.resultado {
     display: flex;
     height: 80%;
     align-items: center;
@@ -367,7 +367,6 @@ main{
     width: 90%;
     padding: 0;
     position: relative;
-    margin-bottom: 7%;
 }
 
 .carrosel {
@@ -410,7 +409,7 @@ main{
     z-index: 2;
 }
 
-.chamada_acao_eventos h1{
+.chamada_acao_eventos h1 {
     text-transform: uppercase;
     line-height: 40px;
 }
@@ -442,28 +441,45 @@ main{
     }
 }
 
+.contato {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.conteudo_contato {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.texto_contato h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
 .container_contato{
-display: flex; 
-justify-content: space-around;
-}
-
-.esquerdo {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
 }
 
-.direito {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+.input_contato{
+    width: 100%;
+    padding: 1%;
 }
 
-.input_contato_descreva:focus, .input_contato:focus {
-    border-bottom: 2px solid var(--laranja);
-    border-radius: 4px 4px 2px 2px;
+.input_contato_descreva{
+    padding: 1% 1% 15%;
+    font-family: 'Inter', sans-serif;
+}
+
+.input_contato:focus 
+.input_contato_descreva:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
 }
 
 .rodape_conteudo {
@@ -519,6 +535,6 @@ h3 {
     color: var(--laranja);
 }
 
-a{
+a {
     cursor: pointer;
 }

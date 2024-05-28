@@ -13,6 +13,13 @@ email varchar(264) unique,
 senha varchar(50)
 );
 
+create table contato (
+idContato int auto_increment primary key,
+nome varchar(50),
+email varchar(264) unique,
+descricao varchar(2640)
+);
+
 create table evento (
 idEvento int auto_increment,
 nomeEvento varchar(100),
