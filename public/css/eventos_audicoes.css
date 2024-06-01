@@ -1,0 +1,58 @@
+.conteudo{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+p{
+    font-size: 15px;
+}
+
+.esquerdo{
+    width: 60%;
+}
+
+.informacoes span{
+    font-weight: 500;
+}
+
+
+.descricao, .politicas{
+    width: 60%;
+}
+
+.btnIngresso{
+    font-size: 15px;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    padding: 5% 10% 4%;
+    gap: 10px;
+    background-color: black;
+    color: white;
+}
+
+.footerSecao{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pagamentos img{
+    width: 40px;
+}
+
+.seguranca img{
+    width: 120px;
+}
+
+.ajudaBtn{
+    font-size: 15px;
+}
+
+#ingresso_div{
+    width: 25%;
+}

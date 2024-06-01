@@ -23,6 +23,7 @@ descricao varchar(2640)
 create table evento (
 idEvento int auto_increment,
 nomeEvento varchar(100),
+valorIngresso varchar(100),
 momentoInscricao datetime,
 ingresso char(10),
 fkUsuario int,
@@ -48,4 +49,13 @@ primary key (idPontuacao, fkUsuario),
 foreign key (fkUsuario) references usuario(idUsuario)
 );
 
-select * from usuario;
+create table videos (
+idVideos int auto_increment,
+titulo varchar(50),
+qtdCurtidas int,
+fkUsuario int,
+primary key (idVideos, fkUsuario),
+foreign key (fkUsuario) references usuario(idUsuario)
+);
+
+select * from usuario; 

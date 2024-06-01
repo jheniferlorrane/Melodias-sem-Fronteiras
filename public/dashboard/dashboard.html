@@ -8,17 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/png" href="../assets/icon.png">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="../js/slides.js"></script>
     <script src="../js/sessao.js"></script>
 </head>
 
-<body>
+<body onload="bemVindoNovamente()">
     <header>
         <div class="left_header">
             <a href="dashboard.html" class="a_logo_header"><img class="logo" src="../assets/logo-branca.png"></a>
             <ul class="navbar">
                 <li><a href="dashboard.html">home</a></li>
+                <li><a href="aulas/aulas.html">aulas</a></li>
+                <li><a href="videos/videos.html">videos</a></li>
                 <li><a href="jogos/jogos.html">jogos</a></li>
                 <li><a href="eventos/eventos.html">eventos</a></li>
                 <li><a href="audicoes/audicoes.html">audições</a></li>
@@ -26,7 +29,18 @@
             </ul>
         </div>
         <div class="right_header">
-            <a href="dashboard.html" class="foto_perfil"><img class="foto_perfil" src="../assets/fotoPerfil/1.jpg"></a>
+            <div class="profile-container">
+                <a class="foto_perfil">
+                    <img class="foto_perfil" src="../assets/fotoPerfil/1.jpg">
+                </a>
+                <div id="menuModal" class="menuModal">
+                    <ul class="menu_perfil">
+                        <li><a href="conta.html"><img class="icon_menu" src="../assets/perfil.png">Conta</a></li>
+                        <li><a href="../login_cadastro/login.html"><img class="icon_menu" src="../assets/sair.png">Sair
+                                da conta</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </header>
     <main>
@@ -54,7 +68,30 @@
                 </div>
             </div>
         </div>
-        <div class="secao">
+        <div id="home" class="secao home">
+            <div id="parte1">
+                <div id="bemVindo" class="bemVindo"></div>
+                <div id="graficos" class="graficos">
+                    <canvas id="coluna_canva"></canvas>
+                </div>
+            </div>
+        </div>
+        <div id="aulas">
+
+        </div>
+        <div id="videos">
+
+        </div>
+        <div id="jogos">
+
+        </div>
+        <div id="eventos">
+
+        </div>
+        <div id="audicoes">
+
+        </div>
+        <div id="novidades">
 
         </div>
     </main>
@@ -63,6 +100,35 @@
 </html>
 <script>
     let b_usuario = sessionStorage.NOME_USUARIO;
+
+    const coluna = document.getElementById('coluna_canva');
+
+    new Chart(coluna, {
+        type: 'bar',
+        data: {
+            labels: ['2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Barreira Financeira (%)',
+                backgroundColor: 'black',
+                data: [45, 50, 55, 60, 65]
+            }, {
+                label: 'Falta de Recursos Educacionais Adequados (%)',
+                backgroundColor: 'rgb(254, 92, 0',
+                data: [35, 38, 40, 42, 45]
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    function bemVindoNovamente() {
+        bemVindo.innerHTML = `<h2>Bem-vindo, ${b_usuario}!</h2>`
+    }
 
     function novidades() {
         window.location.href = 'novidades/novidades.html'
@@ -79,4 +145,5 @@
     function audicao() {
         window.location.href = 'audicoes/audicoes/audicao.html'
     }
+
 </script>

@@ -13,6 +13,19 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.secao {
+    padding: 5% 5% 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+}
+
 header {
     width: 100%;
     display: flex;
@@ -107,8 +120,61 @@ header {
 }
 
 .foto_perfil {
-    width: 40px;
+    width: 50px;
     border-radius: 5%;
+}
+
+.profile-container{
+    width: 50px;
+    display: flex;
+    justify-content: flex-end;
+    cursor:pointer;
+}
+
+.menuModal {
+    display: none;
+    position: absolute;
+    background-color:white;
+    width: 10%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    top: 12%;
+    border-radius: 2%;
+    cursor: auto;
+}
+
+.menu_perfil{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.menu_perfil li{
+    list-style: none;
+}
+
+.menu_perfil a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 13px; 
+}
+
+.menu_perfil a:hover{
+    background-color: rgb(207, 207, 207);
+}
+
+.profile-container:hover .menuModal {
+    display: block;
+}
+
+.icon_menu{
+    width: 17px;
 }
 
 .carrosel {
