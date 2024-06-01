@@ -24,7 +24,7 @@ create table evento (
 idEvento int auto_increment,
 nomeEvento varchar(100),
 valorIngresso varchar(100),
-ingresso char(10),
+ingresso char(10) unique,
 fkUsuario int,
 primary key (idEvento, fkUsuario),
 foreign key (fkUsuario) references usuario(idUsuario)
@@ -33,7 +33,7 @@ foreign key (fkUsuario) references usuario(idUsuario)
 create table audicao (
 idAudicao int auto_increment,
 nomeProjeto varchar(100),
-numeroInscricao char(10),
+numeroInscricao char(10) unique,
 fkUsuario int,
 primary key (idAudicao, fkUsuario),
 foreign key (fkUsuario) references usuario(idUsuario)
@@ -57,5 +57,5 @@ foreign key (fkUsuario) references usuario(idUsuario)
 );
 
 select * from usuario; 
-
+select * from contato;
 select * from evento; 

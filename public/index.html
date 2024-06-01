@@ -199,11 +199,11 @@
                     </h1>
                 </div>
                 <div class="container_contato">
-                        <input class="input_contato" type="search" placeholder="Nome"><br>
-                        <input class="input_contato" type="search" placeholder="Email"><br>
-                        <textarea class="input_contato_descreva" placeholder="Sobre o que vamos conversar?" maxlength="2640"></textarea>
+                        <input class="input_contato" id="nome_input" type="search" placeholder="Nome"><br>
+                        <input class="input_contato" id="email_input" type="search" placeholder="Email"><br>
+                        <textarea class="input_contato_descreva" id="descricao_input" placeholder="Sobre o que vamos conversar?" maxlength="2640"></textarea>
                 </div>
-                <button id="btn_contato" class="btn">Entrar em Contato</button>
+                <button id="btn_contato" class="btn" onclick="entrarContato()">Entrar em Contato</button>
             </div>
         </div>
     </main>

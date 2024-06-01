@@ -102,3 +102,30 @@ function cadastro() {
 function entrar() {
     window.location.href = './login_cadastro/login.html'
 }   
+
+function entrarContato(){
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value.toLowerCase();
+    var descricaoVar = descricao_input.value;
+
+    fetch("/contato/registrarContato", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            descricaoServer: descricaoVar,
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+    return false;
+}
