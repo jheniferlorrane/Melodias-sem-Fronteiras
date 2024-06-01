@@ -1,20 +1,13 @@
 const numerosAleatorios = [];
-let ingressoValor = [];
-var idUsuario = sessionStorage.ID_USUARIO;
-var b_usuario = sessionStorage.NOME_USUARIO;
+var idUsuario = Number(sessionStorage.ID_USUARIO);
+var usuario = sessionStorage.NOME_USUARIO;
 var nomeEvento = "Astros sem fronteiras";
+let valor = 34.90
 let ingresso = '';
-let valorIngressoBd = ingressoValor[0];
 
 function valorIngresso() {
-    let valor = Math.random() * 100
-    
-    ingressoValor.push(valor.toFixed(2));
-    console.log(ingressoValor)
-
     if (valor == 0) {
         valor = 'Grátis';
-
         valor_ingresso.innerHTML = `<h3>Ingresso ${valor}</h3> <p style="font-size: 15px; padding: 5px 0px 7px;">Inscrições até 10/12/2024</p>`
     } else {
         valor_ingresso.innerHTML = `<h3>Ingresso R$${valor.toFixed(2)}</h3> <p style="font-size: 15px; padding: 5px 0px 7px;">Inscrições até 10/12/2024 <br>Pague em até 12x</p>`
@@ -41,7 +34,7 @@ function exibir() {
     }
 
     console.log(ingresso);
-    console.log(valorIngressoBd);
+    console.log(valor);
     console.log(idUsuario);
     console.log(nomeEvento);
 
@@ -65,9 +58,9 @@ function eventos() {
         },
         body: JSON.stringify({
             nomeEventoServer: nomeEvento,
-            valorIngressoServer: valorIngressoBd,
+            valorIngressoServer: valor,
             ingressoServer: ingresso,
-            fkUsuarioServer: idUsuario
+            fkUsuarioServer: idUsuario,
         }),
     })
         .then(function (resposta) {
