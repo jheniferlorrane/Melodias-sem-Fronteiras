@@ -2,19 +2,86 @@
 <html lang="en">
 
 <head>
-    <title>Jogo da Memoria - Melodias Sem Fronteiras</title>
+    <title>Jogo da Memória - Notas e Cifras</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="imagex/png" href="../../../assets/icon.png">
     <link rel="stylesheet" href="../../../css/dashboard.css">
     <script src="../../../js/sessao.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        :root {
+            --laranja: #FE5C00;
+            --laranja-hover: #c54a03;
+            --laranja-linear: linear-gradient(210deg, #FE5C00 50%, #983700);
+            --shadow-preto: 17px 17px 7px -1px rgba(4, 4, 4, 0.7);
+            --preto-liner: linear-gradient(90deg, #0d0d0d 50%, #707070);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
+            padding-top: 30px;
+        }
+
+        .jogo {
+            width: 60%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: var(--laranja);
+            color: #ffffff;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: bold;
+            height: 80px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card:hover {
+            background-color: var(--laranja-hover);
+        }
+
+        .textos {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #score {
+            color: var(--laranja);
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
-<body>
+<body onload="desdeInicio()">
     <header>
         <div class="left_header">
-            <a href="../eventos.html" class="a_logo_header"><img class="logo" src="../../../assets/logo-branca.png"></a>
+            <a href="../pontuacao.html" class="a_logo_header"><img class="logo" src="../../../assets/logo-branca.png"></a>
         </div>
         <div class="right_header">
             <div class="profile-container">
@@ -23,15 +90,169 @@
                 </a>
                 <div id="menuModal" class="menuModal">
                     <ul class="menu_perfil">
-                        <li><a href="../../conta.html"><img class="icon_menu" src="../../../assets/perfil.png">Conta</a></li>
-                        <li><a href="../../../login_cadastro/login.html"><img class="icon_menu" src="../../../assets/sair.png">Sair
+                        <li><a href="../../conta.html"><img class="icon_menu" src="../../../assets/perfil.png">Conta</a>
+                        </li>
+                        <li><a href="../../../login_cadastro/login.html"><img class="icon_menu"
+                                    src="../../../assets/sair.png">Sair
                                 da conta</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
+    <main>
+        <div class="textos">
+            <h1>Jogo da Memória - Notas e Cifras</h1><br>
+            <h3 id="score">Pontuação: <span class="pontuacao_span">0</span></h3>
+        </div>
+        <div class="grid jogo" id="jogo"></div>
+        <div class="botoes">
+            <button onclick="desistir()" class="btn">Desistir</button>
+            <button onclick="novoJogo()" class="btn">Novo Jogo</button>
+        </div>
+    </main>
 </body>
 
 </html>
-<script></script>
+
+<script>
+    let pontuacaoAtual = 0;
+    var idUsuario = Number(sessionStorage.ID_USUARIO);
+    function desdeInicio() {
+        const cards = [
+            { name: 'C', display: 'C' },
+            { name: 'D', display: 'D' },
+            { name: 'E', display: 'E' },
+            { name: 'F', display: 'F' },
+            { name: 'G', display: 'G' },
+            { name: 'A', display: 'A' },
+            { name: 'B', display: 'B' },
+            { name: 'C', display: 'Dó' },
+            { name: 'D', display: 'Ré' },
+            { name: 'E', display: 'Mi' },
+            { name: 'F', display: 'Fá' },
+            { name: 'G', display: 'Sol' },
+            { name: 'A', display: 'Lá' },
+            { name: 'B', display: 'Si' },
+            { name: 'Cm', display: 'Cm' },
+            { name: 'Dm', display: 'Dm' },
+            { name: 'Em', display: 'Em' },
+            { name: 'Fm', display: 'Fm' },
+            { name: 'Gm', display: 'Gm' },
+            { name: 'Am', display: 'Am' },
+            { name: 'Bm', display: 'Bm' },
+            { name: 'Cm', display: 'Dó menor' },
+            { name: 'Dm', display: 'Ré menor' },
+            { name: 'Em', display: 'Mi menor' },
+            { name: 'Fm', display: 'Fá menor' },
+            { name: 'Gm', display: 'Sol menor' },
+            { name: 'Am', display: 'Lá menor' },
+            { name: 'Bm', display: 'Si menor' },
+        ];
+
+        // Embaralhar as cartas
+        cards.sort(() => 0.5 - Math.random());
+
+        const jogo = document.querySelector('.jogo');
+        const pontuacao = document.querySelector('.pontuacao_span');
+        let cartasEscolhidas = [];
+        let cartasCombinadas = [];
+
+        function createJogo() {
+            for (let contador = 0; contador < cards.length; contador++) {
+                const cartas = document.createElement('div');
+                cartas.classList.add('card');
+                cartas.dataset.id = contador;
+                cartas.textContent = '';
+                cartas.addEventListener('click', flipCard);
+                jogo.appendChild(cartas);
+            }
+        }
+
+        function flipCard() {
+            let cartaId = this.dataset.id;
+            let carta = cards[cartaId];
+            this.textContent = carta.display;
+            cartasEscolhidas.push(carta);
+            if (cartasEscolhidas.length === 2) {
+                setTimeout(checkMatch, 500);
+            }
+        }
+
+        function checkMatch() {
+            const primeiraCarta = cartasEscolhidas[0];
+            const segundaCarta = cartasEscolhidas[1];
+
+            if (primeiraCarta.name === segundaCarta.name && primeiraCarta !== segundaCarta) {
+                pontuacaoAtual++;
+                document.querySelector('.pontuacao_span').textContent = pontuacaoAtual;
+
+                document.querySelectorAll('.card').forEach(card => {
+                    if (card.textContent === primeiraCarta.display || card.textContent === segundaCarta.display) {
+                        card.style.display = 'none';
+                    }
+                });
+            } else {
+                document.querySelectorAll('.card').forEach(card => {
+                    card.textContent = '';
+                });
+            }
+
+            cartasEscolhidas = [];
+
+            if (pontuacaoAtual === cards.length / 2) {
+                setTimeout(() => alert('Parabéns! Você venceu!'), 500);
+                pontuacao();
+            }
+
+        }
+        createJogo();
+    }
+
+    function desistir() {
+        console.log("Pontuação salva: " + pontuacaoAtual);
+        reiniciarJogo();
+        pontuacao();
+    }
+
+    function novoJogo() {
+        reiniciarJogo();
+    }
+
+    function reiniciarJogo() {
+        const jogo = document.querySelector('.jogo');
+        jogo.innerHTML = '';
+        desdeInicio();
+    }
+
+        function aguardar() {
+            console.log('Iniciando aguardar...');
+        }
+
+        function finalizarAguardar() {
+            console.log('Finalizando aguardar...');
+        }
+
+        function pontuacao() {
+            aguardar();
+            fetch("/pontuacao/guardar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    pontuacaoServer: pontuacaoAtual,
+                    fkUsuarioServer: idUsuario,
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                    finalizarAguardar();
+                });
+
+            return false;
+        }
+</script>

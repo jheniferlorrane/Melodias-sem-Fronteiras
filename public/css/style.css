@@ -443,7 +443,7 @@ main {
 
 .contato {
     display: flex;
-    width: 63%;
+    width: 70%;
     flex-direction: column;
 }
 

@@ -41,7 +41,7 @@ foreign key (fkUsuario) references usuario(idUsuario)
 
 create table pontuacao (
 idPontuacao int auto_increment,
-pontuacao decimal(10,2),
+pontuacao int,
 fkUsuario int,
 primary key (idPontuacao, fkUsuario),
 foreign key (fkUsuario) references usuario(idUsuario)
@@ -59,3 +59,4 @@ foreign key (fkUsuario) references usuario(idUsuario)
 select * from usuario; 
 select * from contato;
 select * from evento; 
+select * from pontuacao; 
