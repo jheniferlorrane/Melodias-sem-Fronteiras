@@ -64,11 +64,6 @@
                         <img src="../assets/bannerJogo.png" onclick="jogoMemoria()" alt="Jogo">
                     </div>
                 </div>
-                <div class="itens_carrosel">
-                    <div class="banner">
-                        <img src="../assets/bannerAudicaos.png" onclick="audicao()" alt="Audição">
-                    </div>
-                </div>
             </div>
         </div>
         <div id="home" class="secao home">
@@ -138,7 +133,7 @@
 
     function bemVindoNovamente() {
         bemVindo.innerHTML = `<h2>Bem-vindo(a), ${b_usuario} novamente!</h2><br>
-        <h3>Ranking em tempo real</h3>`
+        <div style="display: flex; align-item: center; gap:5px; margin-bottom:7px;"><img style="width: 25px;" src="../assets/trofeu.png"><h3>Ranking em tempo real:</h3></div>`
     }
 
     function plotarGrafico(resposta) {
@@ -256,9 +251,4 @@
     function jogoMemoria() {
         window.location.href = 'jogos/jogos/jogoMemoria.html'
     }
-
-    function audicao() {
-        window.location.href = 'audicoes/audicoes/audicao.html'
-    }
-
 </script>

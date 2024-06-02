@@ -57,9 +57,11 @@ evento.nomeEvento,
 evento.ingresso
 from usuario join evento on fkUsuario = idUsuario;
 
-select usuario.nome,
-sum(pontuacao.pontuacao) as 'total de pontuação'
+select usuario.nome as nome,
+sum(pontuacao.pontuacao) as totalPontuacao
 from usuario join pontuacao on idUsuario = fkUsuario
 group by usuario.nome
-order by 'total de pontuação' desc
+order by totalPontuacao desc
 limit 5;
+    
+truncate table pontuacao;

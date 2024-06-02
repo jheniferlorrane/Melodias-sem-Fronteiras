@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jogo acertar as notas - Cifras e Notas</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/dashboard.css">
+    <script src="../../../js/sessao.js"></script>
+    <script src="jogos.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        :root {
+            --laranja: #FE5C00;
+            --laranja-hover: #c54a03;
+            --laranja-linear: linear-gradient(210deg, #FE5C00 50%, #983700);
+            --shadow-preto: 17px 17px 7px -1px rgba(4, 4, 4, 0.7);
+            --preto-liner: linear-gradient(90deg, #0d0d0d 50%, #707070);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            border-bottom: white solid 3px;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+
+        #resposta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .textos {
+            color: white;
+            text-align: center;
+        }
+
+        .gerarCifras {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gerarCifras p {
+            width: 30%;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--laranja);
+            color: white;
+            height: 100px;
+            font-size: 1.5rem;
+            padding: 20px 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .btnJogo {
+            background-color: var(--laranja);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 25px;
+            margin: 15px 5px 0px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btnJogo:hover {
+            background-color: var(--laranja-hover);
+        }
+
+        .botoes{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body onload="iniciarJogo()">
+    <header>
+        <div class="left_header">
+            <a href="../eventos.html" class="a_logo_header"><img class="logo" src="../../../assets/logo-branca.png"></a>
+        </div>
+        <div class="right_header">
+            <div class="profile-container">
+                <a class="foto_perfil">
+                    <img class="foto_perfil" src="../../../assets/fotoPerfil/1.jpg">
+                </a>
+                <div id="menuModal" class="menuModal">
+                    <ul class="menu_perfil">
+                        <li><a href="../../conta.html"><img class="icon_menu" src="../../../assets/perfil.png">Conta</a>
+                        </li>
+                        <li><a href="../../../login_cadastro/login.html"><img class="icon_menu"
+                                    src="../../../assets/sair.png">Sair
+                                da conta</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="secao">
+        <div class="textos">
+            <h1>Qual cifra é?</h1>
+            <h3 id="pontuacaoAtual">Pontuação: <span class="pontuacao_span" id="pontuacao_span">0</span></h3>
+        </div>
+        <div class="jogo" id="jogo">
+            <div class="gerarCifras">
+                <p id="notaGerada"></p>
+            </div>
+            <div id="resposta">
+                <div>
+                    <button value="dó" class="btnJogo" onclick="verificarResposta('dó')">C</button>
+                    <button value="dó" class="btnJogo" onclick="verificarResposta('dó menor')">Cm</button>
+                    <button value="ré" class="btnJogo" onclick="verificarResposta('ré')">D</button>
+                    <button value="ré" class="btnJogo" onclick="verificarResposta('ré menor')">Dm</button>
+                    <button value="mi" class="btnJogo" onclick="verificarResposta('mi')">E</button>
+                    <button value="mi" class="btnJogo" onclick="verificarResposta('mi menor')">Em</button>
+                    <button value="fá" class="btnJogo" onclick="verificarResposta('fá')">F</button>
+                </div>
+                <div>
+                    <button value="fá" class="btnJogo" onclick="verificarResposta('fá menor')">Fm</button>
+                    <button value="sol" class="btnJogo" onclick="verificarResposta('sol')">G</button>
+                    <button value="sol" class="btnJogo" onclick="verificarResposta('sol menor')">Gm</button>
+                    <button value="lá" class="btnJogo" onclick="verificarResposta('lá')">A</button>
+                    <button value="lá" class="btnJogo" onclick="verificarResposta('lá menor')">Am</button>
+                    <button value="si" class="btnJogo" onclick="verificarResposta('si')">B</button>
+                    <button value="si" class="btnJogo" onclick="verificarResposta('si menor')">Bm</button>
+                </div>
+            </div>
+        </div>
+        <div class="botoes">
+            <button onclick="desistir()" id="desistir_btn" class="btn">Desistir</button>
+            <button onclick="novoJogo()" class="btn">Novo Jogo</button>
+        </div>
+    </main>
+</body>
+
+</html>
+
+<script>
+    const notas = ['Dó', 'Ré', 'Mi', 'Fá', 'Sol', 'Lá', 'Si', 'Dó menor', 'Ré menor', 'Mi menor', 'Fá menor', 'Sol menor', 'Lá menor', 'Si menor'];
+
+    function iniciarJogo() {
+        gerarNota();
+    }
+
+    function gerarNota() {
+        const indiceAleatorio = Math.floor(Math.random() * notas.length);
+        const notaAleatoria = notas[indiceAleatorio];
+        document.getElementById('notaGerada').innerText = notaAleatoria;
+    }
+
+    function verificarResposta(cifra) {
+        const notaGerada = document.getElementById('notaGerada').innerText.toLowerCase();
+        if (cifra === notaGerada) {
+            pontuacaoAtual++;
+            document.getElementById('pontuacaoAtual').innerHTML = "Pontuação: <span class='pontuacao_span'>" + pontuacaoAtual + "</span>";
+            gerarNota();
+        } else {
+            alert("Você errou! Tente novamente.");
+        }
+    }
+
+    function novoJogo() {
+        salvarPontuacao();
+        pontuacaoAtual = 0;
+        document.getElementById('pontuacaoAtual').innerHTML = "Pontuação: <span class='pontuacao_span'>" + pontuacaoAtual + "</span>";
+        gerarNota();
+    }
+
+    function desistir() {
+        salvarPontuacao();
+        novoJogo();
+    }
+</script>
