@@ -3,7 +3,7 @@ var router = express.Router();
 
 var rankingController = require("../controllers/rankingController");
 
-router.post("/obter", function (req, res) {
+router.get("/obter", function (req, res) {
     rankingController.obter(req, res);
 });
 

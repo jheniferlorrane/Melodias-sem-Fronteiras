@@ -14,7 +14,7 @@
     <script src="../js/sessao.js"></script>
 </head>
 
-<body onload="bemVindoNovamente()">
+<body onload="bemVindoNovamente(), obter()">
     <header>
         <div class="left_header">
             <a href="dashboard.html" class="a_logo_header"><img class="logo" src="../assets/logo-branca.png"></a>
@@ -24,7 +24,6 @@
                 <li><a href="videos/videos.html">videos</a></li>
                 <li><a href="jogos/jogos.html">jogos</a></li>
                 <li><a href="eventos/eventos.html">eventos</a></li>
-                <li><a href="audicoes/audicoes.html">audições</a></li>
                 <li><a href="novidades/novidades.html">novidades</a></li>
             </ul>
         </div>
@@ -137,74 +136,113 @@
 
     const coluna = document.getElementById('coluna_canva');
 
-    new Chart(coluna, {
-        type: 'bar',
-        data: {
-            labels: ['2019', '2020', '2021', '2022', '2023'],
-            datasets: [{
-                label: 'Barreira Financeira (%)',
-                backgroundColor: 'black',
-                data: [45, 50, 55, 60, 65]
-            }, {
-                label: 'Falta de Recursos Educacionais Adequados (%)',
-                backgroundColor: 'rgb(254, 92, 0',
-                data: [35, 38, 40, 42, 45]
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    function obter() {
-        fetch("/ranking/obter", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    setTimeout(function () {
-                        window.location = "../dashboard/dashboard.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-                console.log("Houve um erro ao tentar realizar o login!");
-                alerta_erro.style.display = 'block';
-                cardErro.style.display = "block";
-                mensagem_erro.innerHTML = `Verifique e tente novamente! caso não possua cadastro clique abaixo`;
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-    }
-
-
-
     function bemVindoNovamente() {
         bemVindo.innerHTML = `<h2>Bem-vindo(a), ${b_usuario} novamente!</h2><br>
-        <h3>Ranking</h3>`
+        <h3>Ranking em tempo real</h3>`
+    }
+
+    function plotarGrafico(resposta) {
+        console.log(resposta)
+
+        let labels = [];
+
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Top 5 maiores pontuadores',
+                data: [],
+                backgroundColor: 'rgb(254, 92, 0)',
+                borderColor: 'rgb(197, 74, 3)',
+                borderWidth: 1,
+                fill: true,
+            }]
+        };
+
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (let i = 0; i < resposta.length; i++) {
+            let registro = resposta[i];
+            labels.push(registro.nome); // Adiciona o nome do usuário como rótulo
+            dados.datasets[0].data.push(registro.totalPontuacao);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let myChart = new Chart(
+            document.getElementById(`coluna_canva`),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+    }
+
+    function obter() {
+        fetch("/ranking/obter", { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    plotarGrafico(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function atualizarGrafico(dados, myChart) {
+        fetch("/ranking/obter", { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    if (novoRegistro.length > 0 && novoRegistro[0].totalPontuacao !== dados.labels[dados.labels.length - 1]) {
+                        if (!dados.labels.includes(novoRegistro[0].nome)) {
+                            if (dados.labels.length >= 5) {
+                                dados.labels.pop();
+                                dados.datasets[0].data.pop();
+                            }
+                            dados.labels.unshift(novoRegistro[0].nome);
+                            dados.datasets[0].data.unshift(novoRegistro[0].totalPontuacao);
+                            myChart.update();
+                        } else {
+                            console.log("Novo dado duplicado. O gráfico não será atualizado.");
+                        }
+                    } else {
+                        console.log("Nenhum novo dado disponível. O gráfico não será atualizado.");
+                    }
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado');
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+            });
     }
 
     function novidades() {

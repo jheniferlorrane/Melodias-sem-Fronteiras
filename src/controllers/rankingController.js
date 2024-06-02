@@ -1,30 +1,22 @@
 var rankingModel = require("../models/rankingModel");
 
 function obter(req, res) {
-    rankingModel.obter()
-        .then(
-            function (resultadoObter) {
-                console.log(`\nResultados encontrados: ${resultadoObter.length}`);
-                console.log(`Resultados: ${JSON.stringify(resultadoObter)}`);
 
-                if (resultadoObter.length == 1) {
-                    console.log(resultadoObter);
+    const limite_linhas = 5;
 
-                    res.json({
-                        id: resultadoObter[0].idranking,
-                        email: resultadoObter[0].email,
-                        nome: resultadoObter[0].nome
-                    });
+    console.log(`Recuperando as ultimas ${limite_linhas} ranking`);
 
-                } else{
-                    res.status(403).send("Não tem nada no banco");
-                }
-            })
-        .catch(function (erro) {
-            console.log(erro);
-            console.log("\nHouve um erro ao realizar a plotagem do grafico! Erro: ", erro.sqlMessage);
-            res.status(500).json(erro.sqlMessage);
-        });
+    rankingModel.obter(limite_linhas).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas rankings.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 
 module.exports = {
