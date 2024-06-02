@@ -24,7 +24,7 @@ function entrar() {
         return false;
     }
     else {
-        setInterval(sumirMensagem, 900);
+        setInterval(sumirMensagem, 2000);
     }
 
     console.log("FORM LOGIN: ", emailVar);
@@ -59,9 +59,10 @@ function entrar() {
             });
 
         } else {
-
             console.log("Houve um erro ao tentar realizar o login!");
-
+            alerta_erro.style.display = 'block';
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = `Verifique e tente novamente! caso não possua cadastro clique abaixo`;
             resposta.text().then(texto => {
                 console.error(texto);
                 finalizarAguardar(texto);

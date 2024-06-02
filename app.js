@@ -20,6 +20,7 @@ var usuarioRouter = require("./src/routes/usuarios");
 var eventosRouter = require("./src/routes/eventos");
 var contatoRouter = require("./src/routes/contato");
 var pontuacaoRouter = require("./src/routes/pontuacao");
+var rankingRouter = require("./src/routes/ranking");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -32,6 +33,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/eventos", eventosRouter);
 app.use("/contato", contatoRouter);
 app.use("/pontuacao", pontuacaoRouter);
+app.use("/ranking", rankingRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

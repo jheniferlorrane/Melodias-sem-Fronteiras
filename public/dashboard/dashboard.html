@@ -35,7 +35,11 @@
                 </a>
                 <div id="menuModal" class="menuModal">
                     <ul class="menu_perfil">
-                        <li><a href="conta.html"><img class="icon_menu" src="../assets/perfil.png">Conta</a></li>
+                        <li><a href="conta.html"><img class="icon_menu" src="../assets/perfil.png">Conta</a>
+                        </li>
+                        <li><a href="eventos/meusIngressos.html"><img class="icon_menu" src="../assets/bilhete.png">Meus
+                                ingressos</a>
+                        </li>
                         <li><a href="../login_cadastro/login.html"><img class="icon_menu" src="../assets/sair.png">Sair
                                 da conta</a></li>
                     </ul>
@@ -156,8 +160,51 @@
         }
     });
 
+    function obter() {
+        fetch("/ranking/obter", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    setTimeout(function () {
+                        window.location = "../dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+                alerta_erro.style.display = 'block';
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = `Verifique e tente novamente! caso não possua cadastro clique abaixo`;
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+
     function bemVindoNovamente() {
-        bemVindo.innerHTML = `<h2>Bem-vindo, ${b_usuario}!</h2>`
+        bemVindo.innerHTML = `<h2>Bem-vindo(a), ${b_usuario} novamente!</h2><br>
+        <h3>Ranking</h3>`
     }
 
     function novidades() {

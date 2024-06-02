@@ -27,6 +27,8 @@
                     <ul class="menu_perfil">
                         <li><a href="../../conta.html"><img class="icon_menu" src="../../../assets/perfil.png">Conta</a>
                         </li>
+                        <li><a href="../meusIngressos.html"><img class="icon_menu" src="../../../assets/bilhete.png">Meus ingressos</a>
+                        </li>
                         <li><a href="../../../login_cadastro/login.html"><img class="icon_menu"
                                     src="../../../assets/sair.png">Sair
                                 da conta</a></li>
@@ -96,7 +98,7 @@
                 <div id="ingresso_div">
                     <div id="valor_ingresso">
                     </div>
-                    <button class="btn btnIngresso" onclick="telaPagamento()">Pegar ingresso!</button>
+                    <button class="btn btnIngresso" onclick="telaIngresso()">Pegar ingresso!</button>
                 </div>
             </div>
         </div>
@@ -133,7 +135,8 @@
 
 </html>
 <script>
-    function telaPagamento() {
-        window.location.href = 'pagamento.html'
-    }
+    
+function telaIngresso(){
+    window.location.href = 'ingresso.html'
+}
 </script>

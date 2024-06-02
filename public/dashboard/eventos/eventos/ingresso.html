@@ -13,7 +13,7 @@
     <script src="../../../js/evento.js"></script>
 </head>
 
-<body onload="exibir()"> 
+<body onload="exibir()">
     <header>
         <div class="left_header">
             <a href="../eventos.html" class="a_logo_header"><img class="logo" src="../../../assets/logo-branca.png"></a>
@@ -27,6 +27,8 @@
                     <ul class="menu_perfil">
                         <li><a href="../../conta.html"><img class="icon_menu" src="../../../assets/perfil.png">Conta</a>
                         </li>
+                        <li><a href="../meusIngressos.html"><img class="icon_menu" src="../../../assets/bilhete.png">Meus ingressos</a>
+                        </li>
                         <li><a href="../../../login_cadastro/login.html"><img class="icon_menu"
                                     src="../../../assets/sair.png">Sair
                                 da conta</a></li>
@@ -36,22 +38,22 @@
         </div>
     </header>
     <main>
-        <div id="banner">
+        <div id="banner" class="secao">
             <img src="../../../assets/bannerEvento.png">
         </div>
         <div class="conteudo secao">
             <div class="esquerdo">
                 <div class="secao1">
-                    <h1>Astros sem fronteiras</h1>
+                    <h1>Pedido efetuado com sucesso</h1>
+                </div>
+                <span id="ingresso_span"></span>
+                <div class="direito">
+                    <div>
+                        <h3>Resumo</h3>
+                        <span id="valorResumo"></span>
+                    </div>
                 </div>
             </div>
-            <div class="direito">
-                <div>
-                    <h3>Resumo</h3>
-                    <span id="valorResumo"></span>
-                </div>
-            </div>
-        </div>
-        <div id="div_exibir"></div>
+            <div id="div_exibir"></div>
     </main>
 </body>

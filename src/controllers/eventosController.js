@@ -1,6 +1,7 @@
 var eventosModel = require("../models/eventosModel");
 
 function registrar(req, res) {
+    var nomeUsuario = req.body.nomeUsuarioServer;
     var nomeEvento = req.body.nomeEventoServer;
     var valorIngresso = req.body.valorIngressoServer;
     var ingresso = req.body.ingressoServer;
@@ -9,16 +10,18 @@ function registrar(req, res) {
     // Faça as validações dos valores
     if (nomeEvento == undefined) {
         res.status(400).send("o nome do evento está undefined!");
+    } else if (nomeUsuario == undefined) {
+        res.status(400).send("Seu valorIngresso está undefined!");
     } else if (valorIngresso == undefined) {
         res.status(400).send("Seu valorIngresso está undefined!");
-    } else if (ingresso == undefined) {
+    }else if (ingresso == undefined) {
         res.status(400).send("Sua ingresso está undefined!");
     } else if (fkUsuario == undefined) {
         res.status(400).send("Sua fkUsuario está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo eventosModel.js
-        eventosModel.registrar(nomeEvento, valorIngresso, ingresso, fkUsuario)
+        eventosModel.registrar(nomeUsuario, nomeEvento, valorIngresso, ingresso, fkUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);

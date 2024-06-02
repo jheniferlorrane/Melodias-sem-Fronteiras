@@ -47,16 +47,19 @@ primary key (idPontuacao, fkUsuario),
 foreign key (fkUsuario) references usuario(idUsuario)
 );
 
-create table videos (
-idVideos int auto_increment,
-titulo varchar(50),
-qtdCurtidas int,
-fkUsuario int,
-primary key (idVideos, fkUsuario),
-foreign key (fkUsuario) references usuario(idUsuario)
-);
-
 select * from usuario; 
 select * from contato;
 select * from evento; 
 select * from pontuacao; 
+
+select usuario.nome,
+evento.nomeEvento,
+evento.ingresso
+from usuario join evento on fkUsuario = idUsuario;
+
+select usuario.nome,
+sum(pontuacao.pontuacao) as 'total de pontuação'
+from usuario join pontuacao on idUsuario = fkUsuario
+group by usuario.nome
+order by 'total de pontuação' desc
+limit 5;

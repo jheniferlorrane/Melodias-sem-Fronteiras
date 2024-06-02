@@ -218,3 +218,7 @@ header {
         transform: translateX(0);
     }
 }
+
+.graficos{
+    width: 40%;
+}
