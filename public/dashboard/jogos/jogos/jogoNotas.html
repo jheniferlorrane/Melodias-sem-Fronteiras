@@ -28,7 +28,7 @@
         }
 
         header {
-            border-bottom: white solid 3px;
+            border-bottom: white solid 1.5px;
         }
 
         body {
@@ -91,7 +91,7 @@
             background-color: var(--laranja-hover);
         }
 
-        .botoes{
+        .botoes {
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -162,6 +162,7 @@
 
 <script>
     const notas = ['Dó', 'Ré', 'Mi', 'Fá', 'Sol', 'Lá', 'Si', 'Dó menor', 'Ré menor', 'Mi menor', 'Fá menor', 'Sol menor', 'Lá menor', 'Si menor'];
+    let contador = 0;
 
     function iniciarJogo() {
         gerarNota();
@@ -180,15 +181,24 @@
             document.getElementById('pontuacaoAtual').innerHTML = "Pontuação: <span class='pontuacao_span'>" + pontuacaoAtual + "</span>";
             gerarNota();
         } else {
+            contador++;
             alert("Você errou! Tente novamente.");
+
+            if (contador == 3) {
+                alert("Você errou 3 vezes! Vamos tentar novamente.");
+                salvarPontuacao();
+                novoJogo();
+            }
         }
     }
 
     function novoJogo() {
+        contador = 0;
         salvarPontuacao();
         pontuacaoAtual = 0;
         document.getElementById('pontuacaoAtual').innerHTML = "Pontuação: <span class='pontuacao_span'>" + pontuacaoAtual + "</span>";
         gerarNota();
+        console.log(contador)
     }
 
     function desistir() {
