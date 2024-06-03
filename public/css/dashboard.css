@@ -26,6 +26,10 @@ body {
     justify-content: center;
 }
 
+.conteudoHome{
+    padding: 1% 0% 5% 5%;
+}
+
 header {
     width: 100%;
     display: flex;
@@ -131,6 +135,16 @@ header {
     cursor:pointer;
 }
 
+.home{
+    padding: 5% 10%;
+}
+
+#parte1{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
 .menuModal {
     display: none;
     position: absolute;
@@ -198,20 +212,16 @@ header {
 
 @keyframes slide {
 
-    0%, 12.5% { /*0% e 12.5% é do Tempo (aqui digo que de 0% a 12.5 ele fica parado*/
+    0%, 37.5% { /*0% e 12.5% é do Tempo (aqui digo que de 0% a 12.5 ele fica parado*/
         transform: translateX(0); 
     }
 
-    25%, 37.5% {
+    50%, 62.5%{
         transform: translateX(-100%); 
     }
 
-    50%, 62.5% {
-        transform: translateX(-200%);
-    }
-
     75%, 87.5% {
-        transform: translateX(-300%);
+        transform: translateX(-200%);
     }
 
     100% {
@@ -220,5 +230,29 @@ header {
 }
 
 .graficos{
-    width: 40%;
+    width: 100%;
+}
+
+.iconRedirecionador{
+    width: 30px;
+}
+
+.iconRedirecionador span{
+    font-weight: bolder;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.secoes{
+    width: 33.5%;
+    border: black 2px solid;
+    padding: 7% 0%;
+}
+
+.paiSecoes{
+    display: flex;
+}
+
+footer{
+    background-color: black;
+    padding: 60px;
 }
