@@ -9,11 +9,43 @@
     <link rel="shortcut icon" type="imagex/png" href="../assets/icon.png">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <script src="../../js/sessao.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .conteudo {
+            display: flex;
+        }
+
+        .bannerNotas {
+            width: 50%;
+        }
+
+        .bannerNotas img{
+           height: 100%;
+        } 
+
+        .bannerMemoria {
+           width: 50%;
+        } 
+
+        .bannerMemoria img{
+           height: 100%;
+        } 
+
+        footer {
+            padding: 30px;
+            background-color: black;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <div class="left_header"> 
+        <div class="left_header">
             <a href="../dashboard.html" class="a_logo_header"><img class="logo" src="../../assets/logo-branca.png"></a>
             <ul class="navbar">
                 <li><a href="../dashboard.html">home</a></li>
@@ -33,7 +65,8 @@
                     <ul class="menu_perfil">
                         <li><a href="../conta.html"><img class="icon_menu" src="../../assets/perfil.png">Conta</a>
                         </li>
-                        <li><a href="../eventos/meusIngressos.html"><img class="icon_menu" src="../../assets/bilhete.png">Meus ingressos</a>
+                        <li><a href="../eventos/meusIngressos.html"><img class="icon_menu"
+                                    src="../../assets/bilhete.png">Meus ingressos</a>
                         </li>
                         <li><a href="../../login_cadastro/login.html"><img class="icon_menu"
                                     src="../../assets/sair.png">Sair
@@ -44,8 +77,26 @@
         </div>
     </header>
     <main>
-        <div><a href="jogos/jogoMemoria.html">jogoMemoria</a></div>
+        <div class="conteudo">
+            <div class="banner bannerNotas">
+                <img src="../../assets/bannerEvento.png" onclick="jogoNotas()" alt="jogoNotas">
+            </div>
+            <div class="banner bannerMemoria">
+                <img src="../../assets/bannerJogoMemoria.png" onclick="jogoMemoria()" alt="jogoMemoria">
+            </div>
+        </div>
     </main>
+    <footer></footer>
 </body>
 
 </html>
+<script>
+    
+    function jogoNotas() {
+        window.location.href = 'jogos/jogoNotas.html'
+    }
+
+    function jogoMemoria() {
+        window.location.href = 'jogos/jogoMemoria.html'
+    }
+</script>
