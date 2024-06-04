@@ -10,26 +10,40 @@
     <link rel="stylesheet" href="../../css/dashboard.css">
     <script src="../../js/sessao.js"></script>
     <style>
-        .secao{
-            padding-top: 7%;
-        }
-
-        .secoes{
-            padding: 25% 0;
-        }
-
-        .linhas{
+        main {
+            margin-top: 3%;
+            margin-bottom: 3%;
             display: flex;
-            height: 70%;
-            align-items: center;
-            justify-content: space-around;
+            align-items: flex-start;
+            padding: 0px 5%;
+        }
+
+        .secao {
+            width: 50%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+
+        .banner {
+            padding-top: 3%;
+        }
+
+        .banner:hover {
+            cursor: pointer;
+            box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner div {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="left_header"> 
+        <div class="left_header">
             <a href="../dashboard.html" class="a_logo_header"><img class="logo" src="../../assets/logo-branca.png"></a>
             <ul class="navbar">
                 <li><a href="../dashboard.html">home</a></li>
@@ -47,9 +61,11 @@
                 </a>
                 <div id="menuModal" class="menuModal">
                     <ul class="menu_perfil">
-                        <li><a href="meusIngressos.html"><img class="icon_menu" src="../../../assets/bilhete.png">Meus ingressos</a>
-                    </li>
-                        <li><a href="../../login_cadastro/login.html"><img class="icon_menu" src="../../assets/sair.png">Sair
+                        <li><a href="meusIngressos.html"><img class="icon_menu" src="../../../assets/bilhete.png">Meus
+                                ingressos</a>
+                        </li>
+                        <li><a href="../../login_cadastro/login.html"><img class="icon_menu"
+                                    src="../../assets/sair.png">Sair
                                 da conta</a></li>
                     </ul>
                 </div>
@@ -57,15 +73,26 @@
         </div>
     </header>
     <main>
-        <div id="banner">
-            <img src="../../assets/bannerEvento.png" onclick="consertoViolino()">
-        </div>
-        <div class="secao">
-            <div class="linhas">
-                <div class="secoes"></div>
-                <div class="secoes"></div>
+        <div id="banner" class="banner secao">
+            <div onclick="noticia()">
+                <h1>Holograma Revoluciona a Experiência Musical</h1>
+                <span>Neste artigo, é relatado um show inovador realizado pela banda ABBA no Estádio Central em 2022.
+                    Utilizando tecnologia de hologramas, o show permitiu que os membros da banda
+                    aparecessem no palco em suas formas jovens, fazendo parte da turnê "ABBA Voyage". A apresentação foi
+                    aclamada por integrar tecnologia avançada com performances carismáticas, e o artigo explora o
+                    impacto dessa inovação no futuro dos espetáculos ao vivo.</span>
+                <img style="width: 90%;" src="../../assets/holografico.jpg">
             </div>
         </div>
+        <div id="banner" class="banner secao">
+            <div onclick="consertoViolino()">
+                <h1>Concerto de Violinos ao Ar Livre na Avenida Paulista</h1>
+                <span>Participe do emocionante Concerto de Violinos ao Ar Livre na icônica Avenida Paulista,
+                    um evento especial que celebra a música clássica em um dos pontos mais emblemáticos de São Paulo.
+                    Junte-se a nós no dia 28 de junho de 2025, às 17h, para uma noite inesquecível de música e
+                    cultura.</span>
+                <img src="../../assets/bannerEvento.png"><br>
+            </div>
     </main>
     <footer>
         <div class="rodape_conteudo">
@@ -112,3 +139,12 @@
 </body>
 
 </html>
+<script>
+    function noticia() {
+        window.location.href = 'noticia.html'
+    }
+
+    function consertoViolino() {
+        window.location.href = '../eventos/eventos/astrosSemFronteiras.html'
+    }
+</script>

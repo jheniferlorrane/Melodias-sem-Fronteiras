@@ -241,10 +241,15 @@ header {
 }
 
 .comeco{
-    display: flex;
     width: 100%;
-    justify-content: space-around;
-    gap: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.comeco_1{
+    width: 50%;
+    align-items: center;
 }
 
 .graficos {
@@ -267,12 +272,24 @@ header {
 
 .secoes {
     width: 33.5%;
-    border: black 2px solid;
-    padding: 7% 0%;
+    padding-top: 10px;
+    height: 250px;
+}
+
+.secoes img{
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.secoes:hover{
+    cursor: pointer;
 }
 
 .paiSecoes {
     display: flex;
+    gap: 5px;
 }
 
 .rodape_conteudo {

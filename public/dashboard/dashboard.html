@@ -58,7 +58,7 @@
                 </div>
                 <div class="itens_carrosel">
                     <div class="banner">
-                        <img src="../assets/bannerJogo2.png" onclick="jogoMemoria()" alt="Jogo">
+                        <img src="../assets/bannerJogo2.png" onclick="jogoNotas()" alt="Jogo">
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <div id="parte1">
                 <div id="bemVindo" class="bemVindo"></div>
                 <div class="comeco">
-                    <div>
+                    <div class="comeco_1">
                         <div style="display: flex; align-item: center; gap:5px; margin-bottom:7px;"><img
                                 style="width: 25px;" src="../assets/trofeu.png">
                             <h3>Veja abaixo o ranking dos maiores pontuadores</h3>
@@ -76,10 +76,12 @@
                             <canvas id="coluna_canva"></canvas>
                         </div>
                     </div>
-                    <div>
-                        <div style="display: flex; align-item: center; gap:5px; margin-bottom:7px;"><img
-                                style="width: 25px;" src="../assets/trofeu.png">
-                            <h3>Veja abaixo o ranking dos maiores pontuadores</h3>
+                    <div class="comeco_1">
+                        <div
+                            style="display: flex; flex-direction: column; align-item: center; gap:5px; margin-bottom:7px;">
+                            <h3>Bora aumentar sua pontuação? Jogue agora!</h3>
+                            <img style="width: 90%; padding-top: 2%;" src="../assets/bannerJogo2.png"
+                                onclick="jogoNotas()">
                         </div>
                     </div>
                 </div>
@@ -91,9 +93,19 @@
                     <h3>Aulas <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
+                    <div class="secoes"><img src="../assets/bannerAulas_VIdeos/teclado.jpg"></div>
+                    <div class="secoes"><img src="../assets/bannerAulas_VIdeos/canto.jpg"></div>
+                    <div class="secoes"><img src="../assets/bannerAulas_VIdeos/violãoBasico.jpg"></div>
+                </div>
+                <div id="modal_div" class="modal_div" style="display: none;">
+                    <div id="conteudo_modal">
+                        <div class="header_modal">
+                            <button class="btn" id="fechar_modal" onclick="fecharModal()">Fechar</button>
+                        </div>
+                        <div class="resultado">
+                            <div id="exibir_resultado"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="videos">
@@ -111,29 +123,25 @@
                     <h3>Jogos educacionais <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
+                    <div class="secoes" onclick="jogoNotas()"><img src="../assets/bannerJogo2.png"></div>
+                    <div class="secoes" onclick="jogoMemoria()"><img src="../assets/bannerJogo2.png"></div>
                 </div>
             </div>
             <div id="eventos">
                 <div class="redirecionador" onclick="eventos()">
-                    <h3>Eventos <span class="boldTitulo">></span></h3>
+                    <h3>Eventos da Semana <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
+                    <div class="secoes" onclick="consertoViolino()"><img src="../assets/bannerEvento.png"></div>
                 </div>
             </div>
             <div id="novidades">
                 <div class="redirecionador" onclick="novidades()">
                     <h3>Novidades <span class="boldTitulo">></span></h3>
                 </div>
-                <div class="paiSecoes">
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
+                <div class="paiSecoes">   
+                    <div class="secoes" onclick="holograma()"><img src="../assets/holografico.jpg"></div>            
+                    <div class="secoes" onclick="consertoViolino()"><img src="../assets/bannerEvento.png"></div>
                 </div>
             </div>
         </div>
@@ -189,7 +197,7 @@
     const coluna = document.getElementById('coluna_canva');
 
     function bemVindoNovamente() {
-        bemVindo.innerHTML = `<h2>Bem-vindo(a) ${b_usuario},<br> É sempre um prazer te ter de volta amante da música!</h2><br><br><br>`
+        bemVindo.innerHTML = `<h2 style="line-height: 38px;">Bem-vindo(a) ${b_usuario},<br> É sempre um prazer ter um amante da música aqui!</h2><br><br><br>`
     }
 
     function plotarGrafico(resposta) {
@@ -308,6 +316,10 @@
         window.location.href = 'jogos/jogos/jogoMemoria.html'
     }
 
+    function jogoNotas() {
+        window.location.href = 'jogos/jogos/jogoNotas.html'
+    }
+
     function eventos() {
         window.location.href = 'eventos/eventos.html'
     }
@@ -318,6 +330,10 @@
 
     function videos() {
         window.location.href = 'videos/videos.html'
+    }
+    
+    function holograma() {
+        window.location.href = 'novidades/noticia.html'
     }
 
     function jogos() {

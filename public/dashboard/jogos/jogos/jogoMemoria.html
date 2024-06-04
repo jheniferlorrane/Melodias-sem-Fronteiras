@@ -5,7 +5,7 @@
     <title>Jogo da Memória - Notas e Cifras</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/png" href="../../../assets/icon.png">
     <link rel="stylesheet" href="../../../css/dashboard.css">
     <script src="../../../js/sessao.js"></script>
@@ -118,34 +118,34 @@
 <script>
     function desdeInicio() {
         const cards = [
-            { name: 'C', display: 'C' },
-            { name: 'D', display: 'D' },
-            { name: 'E', display: 'E' },
-            { name: 'F', display: 'F' },
-            { name: 'G', display: 'G' },
-            { name: 'A', display: 'A' },
-            { name: 'B', display: 'B' },
-            { name: 'C', display: 'Dó' },
-            { name: 'D', display: 'Ré' },
-            { name: 'E', display: 'Mi' },
-            { name: 'F', display: 'Fá' },
-            { name: 'G', display: 'Sol' },
-            { name: 'A', display: 'Lá' },
-            { name: 'B', display: 'Si' },
-            { name: 'Cm', display: 'Cm' },
-            { name: 'Dm', display: 'Dm' },
-            { name: 'Em', display: 'Em' },
-            { name: 'Fm', display: 'Fm' },
-            { name: 'Gm', display: 'Gm' },
-            { name: 'Am', display: 'Am' },
-            { name: 'Bm', display: 'Bm' },
-            { name: 'Cm', display: 'Dó menor' },
-            { name: 'Dm', display: 'Ré menor' },
-            { name: 'Em', display: 'Mi menor' },
-            { name: 'Fm', display: 'Fá menor' },
-            { name: 'Gm', display: 'Sol menor' },
-            { name: 'Am', display: 'Lá menor' },
-            { name: 'Bm', display: 'Si menor' },
+            { nome: 'C', display: 'C' },
+            { nome: 'D', display: 'D' },
+            { nome: 'E', display: 'E' },
+            { nome: 'F', display: 'F' },
+            { nome: 'G', display: 'G' },
+            { nome: 'A', display: 'A' },
+            { nome: 'B', display: 'B' },
+            { nome: 'C', display: 'Dó' },
+            { nome: 'D', display: 'Ré' },
+            { nome: 'E', display: 'Mi' },
+            { nome: 'F', display: 'Fá' },
+            { nome: 'G', display: 'Sol' },
+            { nome: 'A', display: 'Lá' },
+            { nome: 'B', display: 'Si' },
+            { nome: 'Cm', display: 'Cm' },
+            { nome: 'Dm', display: 'Dm' },
+            { nome: 'Em', display: 'Em' },
+            { nome: 'Fm', display: 'Fm' },
+            { nome: 'Gm', display: 'Gm' },
+            { nome: 'Am', display: 'Am' },
+            { nome: 'Bm', display: 'Bm' },
+            { nome: 'Cm', display: 'Dó menor' },
+            { nome: 'Dm', display: 'Ré menor' },
+            { nome: 'Em', display: 'Mi menor' },
+            { nome: 'Fm', display: 'Fá menor' },
+            { nome: 'Gm', display: 'Sol menor' },
+            { nome: 'Am', display: 'Lá menor' },
+            { nome: 'Bm', display: 'Si menor' },
         ];
 
         // Embaralhar as cartas
@@ -181,7 +181,7 @@
             const primeiraCarta = cartasEscolhidas[0];
             const segundaCarta = cartasEscolhidas[1];
 
-            if (primeiraCarta.name === segundaCarta.name && primeiraCarta !== segundaCarta) {
+            if (primeiraCarta.nome === segundaCarta.nome && primeiraCarta !== segundaCarta) {
                 pontuacaoAtual++;
                 pontuacaoSpan.textContent = pontuacaoAtual;
 

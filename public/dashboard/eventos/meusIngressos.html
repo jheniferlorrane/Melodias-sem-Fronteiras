@@ -10,26 +10,31 @@
     <link rel="stylesheet" href="../../css/dashboard.css">
     <style>
         main {
-            padding: 50px;
+            padding: 50px 150px;
         }
 
         .ingresso {
             display: flex;
             gap: 40px;
             align-items: center;
+            border-radius: 15px;
+            border: 2px solid black;
+        }
+
+        .ingresso:hover{
+            cursor: pointer;
         }
 
         .ingresso img {
-            width: 25%;
-            border-radius: 10px;
+            width: 50%;
+            border-radius: 10px 0px 0px 10px;
         }
 
-        .ingresso-detalhes{
+        .ingresso-detalhes {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-
     </style>
 </head>
 
@@ -45,7 +50,8 @@
                 </a>
                 <div id="menuModal" class="menuModal">
                     <ul class="menu_perfil">
-                        <li><a href="../meusIngressos.html"><img class="icon_menu" src="../../assets/bilhete.png">Meus
+                        <li><a href="../informacaoEvento.html"><img class="icon_menu"
+                                    src="../../assets/bilhete.png">Meus
                                 ingressos</a>
                         </li>
                         <li><a href="../../login_cadastro/login.html"><img class="icon_menu"
@@ -60,11 +66,24 @@
         <div class="ingresso">
             <img src="../../assets/bannerEvento.png" alt="Imagem do evento">
             <div class="ingresso-detalhes">
-                <h2 id="nomeEvento">Astros sem fronteiras - 28/06/2025 às 17h00</h2>
-                <p id="endereco"><strong>Endereço:</strong>Evento presencial na Paulista, São Paulo - SP</p>
-                <p id="ingresso"><strong>Ingresso:</strong> VIP</p>
+                    <h2 id="nomeEvento"></h2>
+                    <p id="data"><strong>Data:&nbsp;</strong></p>
+                    <p id="endereco"><strong>Endereço:&nbsp;</strong></p>
             </div>
         </div>
     </main>
 </body>
+
 </html>
+<script>
+    fetch("informacaoEvento.json").then((response) => {
+        response.json().then((dados) => {
+            dados.astros.map((astros) => {
+                console.log(astros);
+                nomeEvento.innerHTML = `${astros.nome}`
+                data.innerHTML = `<strong>Data:&nbsp;</strong> ${astros.data} às ${astros.horario}`
+                endereco.innerHTML = `<strong>Endereço:&nbsp;</strong> Evento presencial na ${astros.local}`
+            })
+        })
+    });
+</script>
