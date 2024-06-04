@@ -11,6 +11,88 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="../js/sessao.js"></script>
+    <style>
+        body.modal-abrir {
+            overflow: hidden;
+        }
+
+        hr{
+            border-color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .conteudoModal {
+            background-color: #181818;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .hearderModal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hearderModal h2 {
+            margin: 0;
+        }
+
+        .fechar {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .fechar:hover,
+        .fechar:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .episodios {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            color: white;
+        }
+
+        .episodios img {
+            margin-right: 20px;
+        }
+
+        .episodios span {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .informacaoEpisodio span{
+            color: white;
+            font-weight: 900;
+        }
+
+    </style>
 </head>
 
 <body onload="bemVindoNovamente(), obter()">
@@ -19,7 +101,6 @@
             <a href="dashboard.html" class="a_logo_header"><img class="logo" src="../assets/logo-branca.png"></a>
             <ul class="navbar">
                 <li><a href="dashboard.html">home</a></li>
-                <li><a href="aulas/aulas.html">aulas</a></li>
                 <li><a href="videos/videos.html">videos</a></li>
                 <li><a href="jogos/jogos.html">jogos</a></li>
                 <li><a href="eventos/eventos.html">eventos</a></li>
@@ -34,8 +115,7 @@
                 <div id="menuModal" class="menuModal">
                     <ul class="menu_perfil">
                         <li><a href="eventos/meusIngressos.html"><img class="icon_menu" src="../assets/bilhete.png">Meus
-                                ingressos</a>
-                        </li>
+                                ingressos</a></li>
                         <li><a href="../login_cadastro/login.html"><img class="icon_menu" src="../assets/sair.png">Sair
                                 da conta</a></li>
                     </ul>
@@ -48,7 +128,7 @@
             <div id="container" class="container">
                 <div class="itens_carrosel">
                     <div class="banner">
-                        <img src="../assets/bannerEvento.png" onclick="consertoViolino()" alt="Evento">
+                        <img src="../assets/bannerEvento.png" onclick="concertoViolino()" alt="Evento">
                     </div>
                 </div>
                 <div class="itens_carrosel">
@@ -58,7 +138,7 @@
                 </div>
                 <div class="itens_carrosel">
                     <div class="banner">
-                        <img src="../assets/bannerJogo2.png" onclick="jogoNotas()" alt="Jogo">
+                        <img src="../assets/bannerJogo1.png" onclick="jogoNotas()" alt="Jogo">
                     </div>
                 </div>
             </div>
@@ -68,8 +148,8 @@
                 <div id="bemVindo" class="bemVindo"></div>
                 <div class="comeco">
                     <div class="comeco_1">
-                        <div style="display: flex; align-item: center; gap:5px; margin-bottom:7px;"><img
-                                style="width: 25px;" src="../assets/trofeu.png">
+                        <div style="display: flex; align-item: center; gap:5px; margin-bottom:7px;">
+                            <img style="width: 25px;" src="../assets/trofeu.png">
                             <h3>Veja abaixo o ranking dos maiores pontuadores</h3>
                         </div>
                         <div id="graficos" class="graficos">
@@ -80,7 +160,7 @@
                         <div
                             style="display: flex; flex-direction: column; align-item: center; gap:5px; margin-bottom:7px;">
                             <h3>Bora aumentar sua pontuação? Jogue agora!</h3>
-                            <img style="width: 90%; padding-top: 2%;" src="../assets/bannerJogo2.png"
+                            <img style="width: 90%; padding-top: 2%;" src="../assets/bannerJogo1.png"
                                 onclick="jogoNotas()">
                         </div>
                     </div>
@@ -89,23 +169,14 @@
         </div>
         <div class="secao conteudoHome">
             <div id="aulas">
-                <div class="redirecionador" onclick="aulas()">
-                    <h3>Aulas <span class="boldTitulo">></span></h3>
+                <div>
+                    <h3>Aulas</h3>
                 </div>
                 <div class="paiSecoes">
-                    <div class="secoes"><img src="../assets/bannerAulas_VIdeos/teclado.jpg"></div>
+                    <div class="secoes" onclick="abrirModal()"><img src="../assets/bannerAulas_VIdeos/teclado.jpg">
+                    </div>
                     <div class="secoes"><img src="../assets/bannerAulas_VIdeos/canto.jpg"></div>
                     <div class="secoes"><img src="../assets/bannerAulas_VIdeos/violãoBasico.jpg"></div>
-                </div>
-                <div id="modal_div" class="modal_div" style="display: none;">
-                    <div id="conteudo_modal">
-                        <div class="header_modal">
-                            <button class="btn" id="fechar_modal" onclick="fecharModal()">Fechar</button>
-                        </div>
-                        <div class="resultado">
-                            <div id="exibir_resultado"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div id="videos">
@@ -123,7 +194,7 @@
                     <h3>Jogos educacionais <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
-                    <div class="secoes" onclick="jogoNotas()"><img src="../assets/bannerJogo2.png"></div>
+                    <div class="secoes" onclick="jogoNotas()"><img src="../assets/bannerJogo1.png"></div>
                     <div class="secoes" onclick="jogoMemoria()"><img src="../assets/bannerJogo2.png"></div>
                 </div>
             </div>
@@ -132,16 +203,16 @@
                     <h3>Eventos da Semana <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
-                    <div class="secoes" onclick="consertoViolino()"><img src="../assets/bannerEvento.png"></div>
+                    <div class="secoes" onclick="concertoViolino()"><img src="../assets/bannerEvento.png"></div>
                 </div>
             </div>
             <div id="novidades">
                 <div class="redirecionador" onclick="novidades()">
                     <h3>Novidades <span class="boldTitulo">></span></h3>
                 </div>
-                <div class="paiSecoes">   
-                    <div class="secoes" onclick="holograma()"><img src="../assets/holografico.jpg"></div>            
-                    <div class="secoes" onclick="consertoViolino()"><img src="../assets/bannerEvento.png"></div>
+                <div class="paiSecoes">
+                    <div class="secoes" onclick="holograma()"><img src="../assets/holografico.jpg"></div>
+                    <div class="secoes" onclick="concertoViolino()"><img src="../assets/bannerEvento.png"></div>
                 </div>
             </div>
         </div>
@@ -154,8 +225,6 @@
                     <span>
                         <h3>Menus</h3>
                         <br>
-                        <a href="aulas/aulas.html" class="button_rodape">Aulas</a>
-                        <br>
                         <a href="videos/videos.html" class="button_rodape">Videos</a>
                         <br>
                         <a href="jogos/jogos.html" class="button_rodape">Jogos</a>
@@ -166,7 +235,6 @@
                         <br>
                     </span>
                 </div>
-
                 <div class="coluna2">
                     <span>
                         <h3>Conta</h3>
@@ -177,7 +245,6 @@
                         <br>
                     </span>
                 </div>
-
                 <div class="coluna3">
                     <span>
                         <h3>Suporte</h3>
@@ -188,155 +255,209 @@
             </div>
         </div>
     </footer>
+
+    <div id="meuModal" class="modal">
+        <div class="conteudoModal">
+            <div class="hearderModal">
+                <h2>Vídeo e Episódios</h2>
+                <span class="fechar" onclick="fecharModal()">&times;</span>
+            </div>
+            <div class="video">
+                <h2 style="color: white; padding: 0px 0px 15px; text-align: center;">Aprenda Tocar Teclado do Zero (Aula
+                    1 de 8) 🎹🔥</h2>
+                <iframe width="100%" height="400"
+                    src="https://www.youtube.com/embed/V9aEwsiIqrY?list=PLHP0BseufEWIBEgQaoNabZT3GAM4-uiaQ"
+                    title="Aprenda Tocar Teclado do Zero  (Aula 1 de 8) 🎹🔥" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div><br>
+            <hr>
+            <div class="episodios">
+                <img style="width: 10%;" src="../assets/bannerAulas_VIdeos/teclado/video2.webp" alt="Episódio 2">
+                <div class="informacaoEpisodio">
+                    <span class="titulo">Exercícios no Teclado (Aula 2 de 8) 🎹🔥</span>
+                    <p class="descricao">Aula 2 aborda exercícios práticos para melhorar sua técnica no teclado.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="episodios">
+                <img style="width: 10%;" src="../assets/bannerAulas_VIdeos/teclado/video3.webp" alt="Episódio 3">
+                <div class="informacaoEpisodio">
+                    <span class="titulo">Improviso para Iniciantes no Piano</span>
+                    <p class="descricao">Dicas e técnicas de improvisação para quem está começando no piano.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="episodios">
+                <img style="width: 10%;" src="../assets/bannerAulas_VIdeos/teclado/video4.webp" alt="Episódio 4">
+                <div class="informacaoEpisodio">
+                    <span class="titulo">Como DESTRAVAR a mão esquerda DO ZERO (Aula de Teclado)</span>
+                    <p class="descricao">Exercícios focados em destravar e melhorar a agilidade da mão esquerda.</p>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <div class="creditos" style="text-align: center; color:white;">
+                <p>Créditos: Milo Andreo</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let b_usuario = sessionStorage.NOME_USUARIO;
+
+        const coluna = document.getElementById('coluna_canva');
+
+        function bemVindoNovamente() {
+            bemVindo.innerHTML = `<h2 style="line-height: 38px;">Bem-vindo(a) ${b_usuario},<br> É sempre um prazer ter um amante da música aqui!</h2><br><br><br>`
+        }
+
+        function plotarGrafico(resposta) {
+            console.log(resposta)
+
+            let labels = [];
+
+            let dados = {
+                labels: labels,
+                datasets: [{
+                    label: 'Top 5 maiores pontuadores',
+                    data: [],
+                    backgroundColor: 'rgb(254, 92, 0)',
+                    borderColor: 'rgb(197, 74, 3)',
+                    borderWidth: 1,
+                    fill: true,
+                }]
+            };
+
+
+            console.log('----------------------------------------------')
+            console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+            console.log(resposta)
+
+            // Inserindo valores recebidos em estrutura para plotar o gráfico
+            for (let i = 0; i < resposta.length; i++) {
+                let registro = resposta[i];
+                labels.push(registro.nome); // Adiciona o nome do usuário como rótulo
+                dados.datasets[0].data.push(registro.totalPontuacao);
+            }
+
+            console.log('----------------------------------------------')
+            console.log('O gráfico será plotado com os respectivos valores:')
+            console.log('Labels:')
+            console.log(labels)
+            console.log('Dados:')
+            console.log(dados.datasets)
+            console.log('----------------------------------------------')
+
+            // Criando estrutura para plotar gráfico - config
+            const config = {
+                type: 'bar',
+                data: dados,
+            };
+
+            let myChart = new Chart(
+                document.getElementById(`coluna_canva`),
+                config
+            );
+
+            setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+        }
+
+        function obter() {
+            fetch("/ranking/obter", { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGrafico(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
+
+        function atualizarGrafico(dados, myChart) {
+            fetch("/ranking/obter", { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (novoRegistro) {
+                        console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                        console.log(`Dados atuais do gráfico:`);
+                        console.log(dados);
+
+                        if (novoRegistro.length > 0 && novoRegistro[0].totalPontuacao !== dados.labels[dados.labels.length - 1]) {
+                            if (!dados.labels.includes(novoRegistro[0].nome)) {
+                                if (dados.labels.length >= 5) {
+                                    dados.labels.pop();
+                                    dados.datasets[0].data.pop();
+                                }
+                                dados.labels.unshift(novoRegistro[0].nome);
+                                dados.datasets[0].data.unshift(novoRegistro[0].totalPontuacao);
+                                myChart.update();
+                            } else {
+                                console.log("Novo dado duplicado. O gráfico não será atualizado.");
+                            }
+                        } else {
+                            console.log("Nenhum novo dado disponível. O gráfico não será atualizado.");
+                        }
+                        proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado');
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+                });
+        }
+
+        function novidades() {
+            window.location.href = 'novidades/novidades.html'
+        }
+
+        function concertoViolino() {
+            window.location.href = 'eventos/eventos/astrosSemFronteiras.html'
+        }
+
+        function jogoMemoria() {
+            window.location.href = 'jogos/jogos/jogoMemoria.html'
+        }
+
+        function jogoNotas() {
+            window.location.href = 'jogos/jogos/jogoNotas.html'
+        }
+
+        function eventos() {
+            window.location.href = 'eventos/eventos.html'
+        }
+
+        function videos() {
+            window.location.href = 'videos/videos.html'
+        }
+
+        function holograma() {
+            window.location.href = 'novidades/noticia.html'
+        }
+
+        function jogos() {
+            window.location.href = 'jogos/jogos.html'
+        }
+
+        function abrirModal() {
+            document.getElementById("meuModal").style.display = "flex";
+            document.body.classList.add('modal-abrir');
+        }
+
+        function fecharModal() {
+            document.getElementById("meuModal").style.display = "none";
+            document.body.classList.remove('modal-abrir');
+        }
+    </script>
 </body>
 
 </html>
-<script>
-    let b_usuario = sessionStorage.NOME_USUARIO;
-
-    const coluna = document.getElementById('coluna_canva');
-
-    function bemVindoNovamente() {
-        bemVindo.innerHTML = `<h2 style="line-height: 38px;">Bem-vindo(a) ${b_usuario},<br> É sempre um prazer ter um amante da música aqui!</h2><br><br><br>`
-    }
-
-    function plotarGrafico(resposta) {
-        console.log(resposta)
-
-        let labels = [];
-
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Top 5 maiores pontuadores',
-                data: [],
-                backgroundColor: 'rgb(254, 92, 0)',
-                borderColor: 'rgb(197, 74, 3)',
-                borderWidth: 1,
-                fill: true,
-            }]
-        };
-
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (let i = 0; i < resposta.length; i++) {
-            let registro = resposta[i];
-            labels.push(registro.nome); // Adiciona o nome do usuário como rótulo
-            dados.datasets[0].data.push(registro.totalPontuacao);
-        }
-
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'bar',
-            data: dados,
-        };
-
-        let myChart = new Chart(
-            document.getElementById(`coluna_canva`),
-            config
-        );
-
-        setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-    }
-
-    function obter() {
-        fetch("/ranking/obter", { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-                    plotarGrafico(resposta);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-    function atualizarGrafico(dados, myChart) {
-        fetch("/ranking/obter", { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
-
-                    if (novoRegistro.length > 0 && novoRegistro[0].totalPontuacao !== dados.labels[dados.labels.length - 1]) {
-                        if (!dados.labels.includes(novoRegistro[0].nome)) {
-                            if (dados.labels.length >= 5) {
-                                dados.labels.pop();
-                                dados.datasets[0].data.pop();
-                            }
-                            dados.labels.unshift(novoRegistro[0].nome);
-                            dados.datasets[0].data.unshift(novoRegistro[0].totalPontuacao);
-                            myChart.update();
-                        } else {
-                            console.log("Novo dado duplicado. O gráfico não será atualizado.");
-                        }
-                    } else {
-                        console.log("Nenhum novo dado disponível. O gráfico não será atualizado.");
-                    }
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-                });
-            } else {
-                console.error('Nenhum dado encontrado');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-            });
-    }
-
-    function novidades() {
-        window.location.href = 'novidades/novidades.html'
-    }
-
-    function consertoViolino() {
-        window.location.href = 'eventos/eventos/astrosSemFronteiras.html'
-    }
-
-    function jogoMemoria() {
-        window.location.href = 'jogos/jogos/jogoMemoria.html'
-    }
-
-    function jogoNotas() {
-        window.location.href = 'jogos/jogos/jogoNotas.html'
-    }
-
-    function eventos() {
-        window.location.href = 'eventos/eventos.html'
-    }
-
-    function aulas() {
-        window.location.href = 'aulas/aulas.html'
-    }
-
-    function videos() {
-        window.location.href = 'videos/videos.html'
-    }
-    
-    function holograma() {
-        window.location.href = 'novidades/noticia.html'
-    }
-
-    function jogos() {
-        window.location.href = 'jogos/jogos.html'
-    }
-</script>

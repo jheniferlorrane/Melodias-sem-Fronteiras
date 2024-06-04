@@ -20,21 +20,39 @@
             display: flex;
         }
 
+        .secao {
+            padding: 5% 5%;
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+            justify-content: center;
+        }
+
         .bannerNotas {
             width: 50%;
         }
 
-        .bannerNotas img{
-           height: 100%;
-        } 
+        .bannerNotas:hover {
+            cursor: pointer;
+            border: solid 5px #FE5C00;
+        }
+
+        .bannerNotas img {
+            height: 100%;
+        }
 
         .bannerMemoria {
-           width: 50%;
-        } 
+            width: 50%;
+        }
 
-        .bannerMemoria img{
-           height: 100%;
-        } 
+        .bannerMemoria:hover {
+            cursor: pointer;
+            border: solid 5px #FE5C00;
+        }
+
+        .bannerMemoria img {
+            height: 100%;
+        }
 
         footer {
             padding: 30px;
@@ -49,7 +67,6 @@
             <a href="../dashboard.html" class="a_logo_header"><img class="logo" src="../../assets/logo-branca.png"></a>
             <ul class="navbar">
                 <li><a href="../dashboard.html">home</a></li>
-                <li><a href="../aulas/aulas.html">aulas</a></li>
                 <li><a href="../videos/videos.html">videos</a></li>
                 <li><a href="../jogos/jogos.html">jogos</a></li>
                 <li><a href="../eventos/eventos.html">eventos</a></li>
@@ -75,9 +92,9 @@
         </div>
     </header>
     <main>
-        <div class="conteudo">
+        <div class="conteudo secao">
             <div class="banner bannerNotas">
-                <img src="../../assets/bannerEvento.png" onclick="jogoNotas()" alt="jogoNotas">
+                <img src="../../assets/bannerJogoNotas.png" onclick="jogoNotas()" alt="jogoNotas">
             </div>
             <div class="banner bannerMemoria">
                 <img src="../../assets/bannerJogoMemoria.png" onclick="jogoMemoria()" alt="jogoMemoria">
@@ -91,8 +108,6 @@
                 <div class="coluna1">
                     <span>
                         <h3>Menus</h3>
-                        <br>
-                        <a href="../aulas/aulas.html" class="button_rodape">Aulas</a>
                         <br>
                         <a href="../videos/videos.html" class="button_rodape">Videos</a>
                         <br>
@@ -130,7 +145,7 @@
 
 </html>
 <script>
-    
+
     function jogoNotas() {
         window.location.href = 'jogos/jogoNotas.html'
     }
