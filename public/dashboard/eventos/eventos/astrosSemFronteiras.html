@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/png" href="../../../assets/icon.png">
     <link rel="stylesheet" href="../../../css/dashboard.css">
-    <link rel="stylesheet" href="../../../css/eventos_audicoes.css">
+    <link rel="stylesheet" href="../../../css/eventos.css">
     <script src="../../../js/sessao.js"></script>
     <script src="../../../js/evento.js"></script>
 </head>
@@ -25,8 +25,6 @@
                 </a>
                 <div id="menuModal" class="menuModal">
                     <ul class="menu_perfil">
-                        <li><a href="../../conta.html"><img class="icon_menu" src="../../../assets/perfil.png">Conta</a>
-                        </li>
                         <li><a href="../meusIngressos.html"><img class="icon_menu" src="../../../assets/bilhete.png">Meus ingressos</a>
                         </li>
                         <li><a href="../../../login_cadastro/login.html"><img class="icon_menu"
@@ -128,7 +126,7 @@
         <div class="contato footerSecao">
             <h3>Precisa de ajuda com algo?</h3>
             <p>Nos envie uma mensagem ou consulte nossa Central de Ajuda para mais informações.</p>
-            <button class="btn ajudaBtn">Receber ajuda</button>
+            <button onclick="contato()" class="btn ajudaBtn">Receber ajuda</button>
         </div>
     </footer>
 </body>
@@ -138,5 +136,9 @@
     
 function telaIngresso(){
     window.location.href = 'ingresso.html'
+}
+
+function contato(){
+    window.location.href = '../../contato.html'
 }
 </script>

@@ -1,16 +1,78 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Ingresso - Melodias Sem Fronteiras</title>
+    <title>Pedido Efetuado com Sucesso!</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/png" href="../../../assets/icon.png">
     <link rel="stylesheet" href="../../../css/dashboard.css">
-    <link rel="stylesheet" href="../../../css/eventos_audicoes.css">
+    <link rel="stylesheet" href="../../../css/eventos.css">
     <script src="../../../js/sessao.js"></script>
     <script src="../../../js/evento.js"></script>
+    <style>
+        .containerPedido {
+            width: 80%;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .conteudoIngresso {
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
+            margin: 20px 0;
+        }
+
+        .pedido-numero {
+            margin-bottom: 20px;
+        }
+
+        .informacoesPedido {
+            display: flex;
+            align-items: center;
+        }
+
+        .informacoesPedido img {
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .detalhesEvento {
+            flex: 1;
+        }
+
+        .detalhesEvento p {
+            margin: 5px 0;
+        }
+
+        .instrucoes h3 {
+            margin-bottom: 10px;
+        }
+
+        .instrucoes p {
+            margin: 5px 0;
+        }
+
+        .instrucoes a {
+            font-weight: 600;
+            text-decoration: underline;
+            color: black;
+        }
+
+        .organizador h3 {
+            margin-bottom: 10px;
+        }
+
+        .organizador p {
+            margin: 5px 0;
+        }
+
+        .organizador {
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body onload="exibir()">
@@ -25,9 +87,8 @@
                 </a>
                 <div id="menuModal" class="menuModal">
                     <ul class="menu_perfil">
-                        <li><a href="../../conta.html"><img class="icon_menu" src="../../../assets/perfil.png">Conta</a>
-                        </li>
-                        <li><a href="../meusIngressos.html"><img class="icon_menu" src="../../../assets/bilhete.png">Meus ingressos</a>
+                        <li><a href="../meusIngressos.html"><img class="icon_menu"
+                                    src="../../../assets/bilhete.png">Meus ingressos</a>
                         </li>
                         <li><a href="../../../login_cadastro/login.html"><img class="icon_menu"
                                     src="../../../assets/sair.png">Sair
@@ -38,22 +99,70 @@
         </div>
     </header>
     <main>
-        <div id="banner" class="secao">
-            <img src="../../../assets/bannerEvento.png">
-        </div>
-        <div class="conteudo secao">
-            <div class="esquerdo">
-                <div class="secao1">
-                    <h1>Pedido efetuado com sucesso</h1>
+        <div class="containerPedido secao">
+            <div class="conteudoIngresso">
+                <div>
+                    <h1>Pedido efetuado com sucesso!</h1>
+                    <span id="ingresso_span"></span><br><br>
                 </div>
-                <span id="ingresso_span"></span>
-                <div class="direito">
-                    <div>
-                        <h3>Resumo</h3>
-                        <span id="valorResumo"></span>
+                <div class="informacoesPedido">
+                    <img src="../../../assets/bannerEvento.png" alt="Evento">
+                    <div class="detalhesEvento">
+                        <h2>Astros sem fronteiras</h2>
+                        <p>28/06/2025 às 17h00</p>
+                        <p>Evento presencial na Paulista, São Paulo - SP</p>
                     </div>
                 </div>
+                <br>
+                <div class="instrucoes">
+                    <h3>Como acessar seu evento:</h3>
+                    <p>No menu, vá para <span style="font-weight: 600;">"Meus ingressos"</span> para ver todos os
+                        ingressos que você possui.</p>
+                    <p>Dúvidas? Mande pela nossa <a href="../../contato.html">Central de ajuda.</a></p>
+                </div>
+                <br>
+                <div class="organizador">
+                    <h3>Sobre o organizador:</h3>
+                    <h4>Melodias sem Fronteiras</h4>
+                    <p>Email do Organizador: <strong>info@eventossemfronteiras.com</strong></p>
+                </div>
             </div>
-            <div id="div_exibir"></div>
+        </div>
     </main>
+    <footer>
+        <div class="pagamentos footerSecao">
+            <h3>Métodos de pagamento</h3>
+            <div>
+                <img src="../../../assets/iconesPagementos/ic-payment-american-express.svg" alt="American Express">
+                <img src="../../../assets/iconesPagementos/ic-payment-boleto.svg" alt="Boleto">
+                <img src="../../../assets/iconesPagementos/ic-payment-elo.svg" alt="Elo">
+                <img src="../../../assets/iconesPagementos/ic-payment-hipercard.svg" alt="Hipercard"><br>
+                <img src="../../../assets/iconesPagementos/ic-payment-master-card.svg" alt="MasterCard">
+                <img src="../../../assets/iconesPagementos/ic-payment-pix.svg" alt="Pix">
+                <img src="../../../assets/iconesPagementos/ic-payment-visa.svg" alt="Visa">
+            </div>
+            <div>Parcele sua compra em até 12x</div>
+        </div>
+        <div class="seguranca footerSecao">
+            <h3>Compre com total segurança</h3>
+            <p>Os dados sensíveis são criptografados e não serão salvos em nossos servidores.</p>
+            <div>
+                <img src="../../../assets/google-safe.png" alt="Google Safe">
+                <img src="../../../assets/pci.png" alt="PCI Compliance">
+            </div>
+        </div>
+        <div class="contato footerSecao">
+            <h3>Precisa de ajuda com algo?</h3>
+            <p>Nos envie uma mensagem ou consulte nossa Central de Ajuda para mais informações.</p>
+            <button class="btn" onclick="contato()">Receber ajuda</button>
+        </div>
+    </footer>
 </body>
+
+</html>
+
+<script>
+    function contato(){
+    window.location.href = '../../contato.html'
+}
+</script>

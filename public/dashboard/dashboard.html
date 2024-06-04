@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/dashboard.js"></script>
-    <script src="../js/slides.js"></script>
     <script src="../js/sessao.js"></script>
 </head>
 
@@ -34,8 +33,6 @@
                 </a>
                 <div id="menuModal" class="menuModal">
                     <ul class="menu_perfil">
-                        <li><a href="conta.html"><img class="icon_menu" src="../assets/perfil.png">Conta</a>
-                        </li>
                         <li><a href="eventos/meusIngressos.html"><img class="icon_menu" src="../assets/bilhete.png">Meus
                                 ingressos</a>
                         </li>
@@ -68,21 +65,30 @@
         </div>
         <div id="home" class="secao home">
             <div id="parte1">
-                <div>
-                    <div id="bemVindo" class="bemVindo"></div>
-                    <div id="graficos" class="graficos">
-                        <canvas id="coluna_canva"></canvas>
+                <div id="bemVindo" class="bemVindo"></div>
+                <div class="comeco">
+                    <div>
+                        <div style="display: flex; align-item: center; gap:5px; margin-bottom:7px;"><img
+                                style="width: 25px;" src="../assets/trofeu.png">
+                            <h3>Veja abaixo o ranking dos maiores pontuadores</h3>
+                        </div>
+                        <div id="graficos" class="graficos">
+                            <canvas id="coluna_canva"></canvas>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    olá
+                    <div>
+                        <div style="display: flex; align-item: center; gap:5px; margin-bottom:7px;"><img
+                                style="width: 25px;" src="../assets/trofeu.png">
+                            <h3>Veja abaixo o ranking dos maiores pontuadores</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="secao conteudoHome">
             <div id="aulas">
-                <div class="redirecionador">
-                    <h2>Aulas <span>></span></h2>
+                <div class="redirecionador" onclick="aulas()">
+                    <h3>Aulas <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
                     <div class="secoes"></div>
@@ -91,8 +97,8 @@
                 </div>
             </div>
             <div id="videos">
-                <div class="redirecionador">
-                    <h2>Videos mais curtidos <span>></span></h2>
+                <div class="redirecionador" onclick="videos()">
+                    <h3>Videos mais curtidos <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
                     <div class="secoes"></div>
@@ -101,8 +107,8 @@
                 </div>
             </div>
             <div id="jogos">
-                <div class="redirecionador">
-                    <h2>Jogos educacionais <span>></span></h2>
+                <div class="redirecionador" onclick="jogos()">
+                    <h3>Jogos educacionais <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
                     <div class="secoes"></div>
@@ -111,8 +117,8 @@
                 </div>
             </div>
             <div id="eventos">
-                <div class="redirecionador">
-                    <h2>Eventos <span>></span></h2>
+                <div class="redirecionador" onclick="eventos()">
+                    <h3>Eventos <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
                     <div class="secoes"></div>
@@ -121,8 +127,8 @@
                 </div>
             </div>
             <div id="novidades">
-                <div class="redirecionador">
-                    <h2>Novidades <span>></span></h2>
+                <div class="redirecionador" onclick="novidades()">
+                    <h3>Novidades <span class="boldTitulo">></span></h3>
                 </div>
                 <div class="paiSecoes">
                     <div class="secoes"></div>
@@ -132,7 +138,48 @@
             </div>
         </div>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="rodape_conteudo">
+            <img class="logo_rodape" src="../assets/logo-branca.png">
+            <div class="colunas">
+                <div class="coluna1">
+                    <span>
+                        <h3>Menus</h3>
+                        <br>
+                        <a href="aulas/aulas.html" class="button_rodape">Aulas</a>
+                        <br>
+                        <a href="videos/videos.html" class="button_rodape">Videos</a>
+                        <br>
+                        <a href="jogos/jogos.html" class="button_rodape">Jogos</a>
+                        <br>
+                        <a href="eventos/eventos.html" class="button_rodape">Eventos</a>
+                        <br>
+                        <a href="novidades/novidades.html" class="button_rodape">Novidades</a>
+                        <br>
+                    </span>
+                </div>
+
+                <div class="coluna2">
+                    <span>
+                        <h3>Conta</h3>
+                        <br>
+                        <a href="eventos/meusIngressos.html" class="button_rodape">Meus ingressos</a>
+                        <br>
+                        <a href="../login_cadastro/login.html" class="button_rodape">Sair da Conta</a>
+                        <br>
+                    </span>
+                </div>
+
+                <div class="coluna3">
+                    <span>
+                        <h3>Suporte</h3>
+                        <br>
+                        <a href="contato.html" class="button_rodape">Contato</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
@@ -142,8 +189,7 @@
     const coluna = document.getElementById('coluna_canva');
 
     function bemVindoNovamente() {
-        bemVindo.innerHTML = `<h2>Bem-vindo(a), ${b_usuario} novamente!</h2><br>
-        <div style="display: flex; align-item: center; gap:5px; margin-bottom:7px;"><img style="width: 25px;" src="../assets/trofeu.png"><h3>Ranking em tempo real:</h3></div>`
+        bemVindo.innerHTML = `<h2>Bem-vindo(a) ${b_usuario},<br> É sempre um prazer te ter de volta amante da música!</h2><br><br><br>`
     }
 
     function plotarGrafico(resposta) {
@@ -260,5 +306,21 @@
 
     function jogoMemoria() {
         window.location.href = 'jogos/jogos/jogoMemoria.html'
+    }
+
+    function eventos() {
+        window.location.href = 'eventos/eventos.html'
+    }
+
+    function aulas() {
+        window.location.href = 'aulas/aulas.html'
+    }
+
+    function videos() {
+        window.location.href = 'videos/videos.html'
+    }
+
+    function jogos() {
+        window.location.href = 'jogos/jogos.html'
     }
 </script>

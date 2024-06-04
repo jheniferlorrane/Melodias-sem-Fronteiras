@@ -1,7 +1,8 @@
 const numerosAleatorios = [];
 var idUsuario = Number(sessionStorage.ID_USUARIO);
 var usuario = sessionStorage.NOME_USUARIO;
-var nomeEvento = "Astros sem fronteiras";
+var nomeEvento = "Astros sem fronteiras - 28/06/2025 às 17h";
+var endereco = "Paulista, São Paulo - SP"
 let valor = 0
 let ingresso = '';
 
@@ -40,7 +41,7 @@ function exibir() {
     console.log(valor);
     console.log(idUsuario);
     console.log(nomeEvento);
-    console.log(usuario);
+    console.log(endereco);
     eventos();
 }
 
@@ -60,8 +61,8 @@ function eventos() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            nomeUsuarioServer: usuario,
             nomeEventoServer: nomeEvento,
+            enderecoServer: endereco,
             valorIngressoServer: valor,
             ingressoServer: ingresso,
             fkUsuarioServer: idUsuario,
