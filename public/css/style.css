@@ -459,24 +459,23 @@ main {
     font-weight: 900;
 }
 
-.container_contato{
+.container_contato {
     display: flex;
     width: 100%;
     flex-direction: column;
 }
 
-.input_contato{
+.input_contato {
     width: 100%;
     padding: 1%;
 }
 
-.input_contato_descreva{
+.input_contato_descreva {
     padding: 1% 1% 15%;
     font-family: 'Inter', sans-serif;
 }
 
-.input_contato:focus 
-.input_contato_descreva:focus{
+.input_contato:focus .input_contato_descreva:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
@@ -492,7 +491,7 @@ main {
 }
 
 .colunas {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: space-around;
     gap: 50px;
@@ -529,6 +528,17 @@ main {
     font-size: 15px;
     display: flex;
     justify-content: left;
+}
+
+.coluna4 {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coluna4 img {
+    width: 40%;
 }
 
 h3 {
