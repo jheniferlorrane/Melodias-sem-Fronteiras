@@ -17,7 +17,7 @@ function valorIngresso() {
 
 function gerarIngresso() {
     function gerarNumeros() {
-        return Math.floor(Math.random() * 10);
+        return Math.floor(Math.random() * 10); /*Math.random gera numeros entre 0 e 1*/
     }
 
     for (let contador = 0; contador < 10; contador++) {

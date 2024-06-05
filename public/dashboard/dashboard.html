@@ -12,7 +12,7 @@
     <script src="../js/dashboard.js"></script>
     <script src="../js/sessao.js"></script>
     <style>
-        body.modal-abrir {
+        .modal-abrir {
             overflow: hidden;
         }
 
@@ -28,7 +28,6 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
             background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
@@ -42,9 +41,8 @@
             width: 80%;
             max-width: 900px;
             border-radius: 10px;
-            position: relative;
             max-height: 90vh;
-            overflow-y: auto;
+            overflow-y: auto; /*Adiciona o scroll*/
         }
 
         .hearderModal {
@@ -101,7 +99,6 @@
             <a href="dashboard.html" class="a_logo_header"><img class="logo" src="../assets/logo-branca.png"></a>
             <ul class="navbar">
                 <li><a href="dashboard.html">home</a></li>
-                <li><a href="videos/videos.html">videos</a></li>
                 <li><a href="jogos/jogos.html">jogos</a></li>
                 <li><a href="eventos/eventos.html">eventos</a></li>
                 <li><a href="novidades/novidades.html">novidades</a></li>
@@ -179,16 +176,6 @@
                     <div class="secoes"><img src="../assets/bannerAulas_VIdeos/violãoBasico.jpg"></div>
                 </div>
             </div>
-            <div id="videos">
-                <div class="redirecionador" onclick="videos()">
-                    <h3>Videos mais curtidos <span class="boldTitulo">></span></h3>
-                </div>
-                <div class="paiSecoes">
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
-                    <div class="secoes"></div>
-                </div>
-            </div>
             <div id="jogos">
                 <div class="redirecionador" onclick="jogos()">
                     <h3>Jogos educacionais <span class="boldTitulo">></span></h3>
@@ -224,8 +211,6 @@
                 <div class="coluna1">
                     <span>
                         <h3>Menus</h3>
-                        <br>
-                        <a href="videos/videos.html" class="button_rodape">Videos</a>
                         <br>
                         <a href="jogos/jogos.html" class="button_rodape">Jogos</a>
                         <br>
@@ -436,10 +421,6 @@
             window.location.href = 'eventos/eventos.html'
         }
 
-        function videos() {
-            window.location.href = 'videos/videos.html'
-        }
-
         function holograma() {
             window.location.href = 'novidades/noticia.html'
         }
@@ -455,7 +436,7 @@
 
         function fecharModal() {
             document.getElementById("meuModal").style.display = "none";
-            document.body.classList.remove('modal-abrir');
+            document.body.classList.remove('modal-abrir'); /*No body vai remover a class*/
         }
     </script>
 </body>
